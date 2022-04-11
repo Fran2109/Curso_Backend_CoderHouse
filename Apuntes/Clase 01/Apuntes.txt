@@ -1,0 +1,26 @@
+Clase 1
+MERN Stack -> MongoDB ExpressJS ReactJS NodeJS
+Navegadores tienen motor de javascript incorporadores
+ECMAScript Engines -> Just-In-Time compilation engines
+Node JS usamos como entorno de programming
+
+javascript
+Tipado debil dinamico
+Tipos de datos
+* Primitivos: string, boolean, number etc
+* Objeto: Object, Array y funciones, La copia es por referencia
+Version de javascript. EcmaScript 6
+Let se usa para devinir variables cuyo valor puede cambiar en cualquier momento
+Const se usa para definir variables cuyo valor que no va a cambiar en ningun momento. No son reasignables, Si mutables
+Las funciones son objetos, Le puedo pasar objetos a una funciones
+Funciones inmediantamente invocadas, se ponen entre parentesis. Se ejecutan inmediantamente
+eje (function(n) { return n*2 })(6) //Return 12 // Se usan con funciones anonimas
+*SCOPE
+Ambito o alcance actual de ejecucion. Los valores yy las expresiones son visible o pueden ser referenciados. 
+Si la variable esta definida exclusivamente dentro de la funcion, no sera accesible desde fuera de la misma o desde otras funciones.
+*Clousure
+Los valores de las variables se mantienen en su contexto o clausura al devolver funciones
+Template de string
+`${nombre}${signos}` //remplaza la variable por su valor en el string
+Clases
+Las clases tienen propiedades, metodos.
