@@ -1,0 +1,19 @@
+Clase 02
+Programacion Sincronica y Asincronica
+const promediar = (a, b) => (a + b) / 2;   La flecha es lo que retorno
+Callbacks es la funcion que se va a ejecutar y esta referenciada en los parametros. es una funcion que se envia como parametro a la funcion
+Sirve para generar una secuencia de instrucciones
+Promesas
+Estados de promesas   ->  pending  -> resolved | rejected  Son callbacks
+Las funciones pueden retornar constantes
+se usa then y catch
+Sincronismo vs Asincronismo
+Administrar recursos para manejar multiples operaciones en simultaneo
+Manejo de archivos
+Primero se incluye la libreria-> const fs = requiere('fs');
+Operaciones Sincronicas
+dereadFileSync, writeFileSync, appendFileSync, UnlinkSync, mkdirSync.
+Lectura de un archivo => const data = fs.readFileSync('./Apuntes.txt', 'utf-8');
+Ruta relativa=donde esta el programa de un archivo
+Asyn await se usa solo cuando lo de adentroe es sincronico
+el await tiene que ir dentro de un try catch

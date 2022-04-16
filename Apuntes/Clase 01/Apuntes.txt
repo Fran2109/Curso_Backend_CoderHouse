@@ -1,4 +1,4 @@
-Clase 1
+Clase 01
 MERN Stack -> MongoDB ExpressJS ReactJS NodeJS
 Navegadores tienen motor de javascript incorporadores
 ECMAScript Engines -> Just-In-Time compilation engines
