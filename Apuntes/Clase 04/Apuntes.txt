@@ -1,0 +1,51 @@
+Clase 04
+Peticiones principales en HTTP -> POST, GET, PUT, DELETE
+Mensajes de respuesta,
+    1**: Informativo
+    2**: Exito
+    3**: Redireccion
+    4**: Error del cliente
+    5**: Error del servidor
+API
+Forma de interaccion con un sistema. Es una interfaz programatica de preguntas y respuestas.
+REST
+REpresentational State Transfer
+Representacion: Modelo o estructura con la que representamos algo
+Estado: Datos que contiene ese modelo estructura.
+Transferir un Estado de Representacion: Envio de datos entre dos partes.
+Formatos de datos mas utilizados: XML y JSON.
+API REST
+    * Aquitectura Cliente-Servidor sin estado
+        * Mensaje HTTP contiene toda la info para la Peticiones
+        * El resultadom Ni el cliente ni el servidor necesitan recordar ningun estado de las comunicaciones entre Mensajes
+        * El cliente y el servidor estan debilmente acoplados.
+        * El cliente no necesita conocer los detalles de implementacion del servidor y el servidor se despreocupa de como son usados los dato sque envia el cliente.
+    * Cacheable
+        * Sistema de almacenamiento en cache
+        * La infraestructura de red debe soportar una cache de varios niveles.
+        * Este almacenamiento evita repetir varias conexiones entre el servidor y el cliente, en casos en que peticiones identicas fueran a generar la misma respuesta.
+    * Operaciones Comunes
+        * Todos los recursos detras de nuestra API deben poder ser consumidos mediante peticiones HTTP, preferentemente sus principales.
+        * Con frecuencia estas operaciones se equiparan a alas operaciones CRUD en base de datos.
+        * Las peticiones HTTP, estas deberan devolver con sus respuestas los correspondientes codigos de estado, informando el resultado de las mismas.
+    * Interfaz Uniforme
+        * En un sistema REST, cada accion debe contar con una URL, un identificador unico.
+        * Esta nos facilita el acceso a la informacion, tanto para consultarla, como para modificarla o eliminarla, pero tambien para compartir su ubicacion exacta a terceros.
+    * Utilizacion de Hipermedios
+        * Cada vez  que se hace una peticion al servidos y este devuelve una respuesta, parte de la informacion devuelta pueden ser tambien hipervinculos de navegacion asociada a otros recursos del cliente.
+        * Como resultado de esto, es posible navegar de un recurso REST a muchos otros, simplemente siguiendo enlaces sin requerir el uso de registros u otra infraestructura adicional.
+
+API en Express
+GET con parametros.
+* Estos parámetros se agregan al final de la URL, mediante un signo de interrogación ‘?’ y enumerando pares ‘clave=valor’ separados por un ampersand ‘&’ si hay más de uno.
+* Al recibirlos, los mismos se encontrarán en el objeto ‘query’ dentro del objeto petición (req).
+En caso de que se quiera acceder a un recurso en particular ya conocido, es necesario enviar un identificador unívoco en la URL.
+Para enviar este tipo de parámetros, el mismo se escribirá luego del nombre del recurso (en la URL), separado por una barra.
+Por ejemplo: http://miservidor.com/api/mensajes/1
+POST
+Para acceder al cuerpo del mensaje, incluído en la petición, lo haremos a través del campo ‘body’ del objeto petición recibido en el callback. En este caso, estamos devolviendo como respuesta el mismo registro que se envió en la petición
+PUT
+Se debe proveer el
+Identificador del registro a reemplazar y el dato con el que se lo quiere sobreescribir.
+DELETE
+Si quisiéramos eliminar un recurso, debemos identificar unívocamente sobre cuál de todos los disponibles se desea realizar la operación
