@@ -6,9 +6,15 @@
     "id": "1651592264999"
   },
   {
-    "title": "titulo4",
-    "price": "precio4",
-    "thumbnail": "link4",
-    "id": "1651594504946"
+    "title": "titulo6",
+    "price": "precio6",
+    "thumbnail": "link6",
+    "id": "1651594811070"
+  },
+  {
+    "title": "Globo Terráqueo",
+    "price": "345.67",
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
+    "id": "1651595979888"
   }
 ]
