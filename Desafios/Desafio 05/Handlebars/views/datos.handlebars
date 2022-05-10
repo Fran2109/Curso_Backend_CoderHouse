@@ -10,7 +10,7 @@
             {{#each productos}}
                 <tr>
                     <td>{{title}}</td>
-                    <td>{{price}}</td>
+                    <td>$ {{price}}</td>
                     <td><img src="{{thumbnail}}" alt="{{title}}" width="50"></td>
                 </tr>
             {{/each}}
@@ -23,4 +23,4 @@
         <h3>Total: {{total}}</h3>
     </div>
 {{/if}}
-<button type="button" class="btn btn-primary">Primary</button>
+<a type="button" class="btn btn-primary" href="/productos/formulario">Formulario</a>

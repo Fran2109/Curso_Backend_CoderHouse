@@ -4,11 +4,10 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon -e js,handlebars,json main.js"
+    "start": "nodemon WebServer.js"
   },
   "keywords": [],
   "author": "",
-  "type": "module",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
