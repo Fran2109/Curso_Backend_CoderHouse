@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Libro",
+    "price": "250.86",
+    "thumbnail": "https://cdn2.iconfinder.com/data/icons/unigrid-phantom-multimedia-vol-6/60/020_256_rules_do_not_list_book_history_education_study_learn_knowledge-512.png",
+    "id": "1651592264999"
+  },
+  {
+    "title": "Casa",
+    "price": "54665.55",
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-science-vol-1-1/512/school_building_education_high-256.png",
+    "id": "1651594811070"
+  },
+  {
+    "title": "Globo Terráqueo",
+    "price": "345.67",
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
+    "id": "1651595979888"
+  },
+  {
+    "title": "Arbol",
+    "price": "3540,43",
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/city-flat-2/512/tree_element_nature_plant_garden_bush-1024.png",
+    "id": "1652212309209"
+  },
+  {
+    "title": "Fabrica",
+    "price": "2353434.43",
+    "thumbnail": "https://cdn2.iconfinder.com/data/icons/industry-flat-4/340/pollution_factory_industry_industrial_environment_smoke_plant_power_building-1024.png",
+    "id": "1652214308929"
+  }
+]
