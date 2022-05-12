@@ -28,5 +28,11 @@
     "price": "2353434.43",
     "thumbnail": "https://cdn2.iconfinder.com/data/icons/industry-flat-4/340/pollution_factory_industry_industrial_environment_smoke_plant_power_building-1024.png",
     "id": "1652214308929"
+  },
+  {
+    "title": "",
+    "price": "",
+    "thumbnail": "",
+    "id": "1652369356838"
   }
 ]

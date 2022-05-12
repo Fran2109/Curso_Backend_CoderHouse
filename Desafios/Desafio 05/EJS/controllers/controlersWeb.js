@@ -5,6 +5,7 @@ const productos = new Contenedor(string_nombreArchivo);
 const controlersWeb = {
     getProductos : async (req, res) => {
         const datos = {
+            tipo: "datos",
             titulo: "Productos",
             productos: [],
             hayProductos: false,
@@ -13,10 +14,10 @@ const controlersWeb = {
         datos.productos = await productos.getAll();
         datos.hayProductos = Boolean(datos.productos.length > 0);
         datos.total = datos.productos.length
-        res.render('datos', datos);
+        res.render('main', datos);
     },
     sendFormulario : (req, res) => {
-        res.render('formulario');
+        res.render('main', { tipo: "formulario" });
     },
     postProducto : (req, res) => {
         productos.save(req.body);
