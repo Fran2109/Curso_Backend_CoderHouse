@@ -1,0 +1,48 @@
+Clase 06
+Websocket
+● Websocket es un protocolo de red basado en TCP que establece cómo deben intercambiarse datos entre redes.
+● Es un protocolo fiable y eficiente, utilizado por prácticamente todos los clientes.
+● El protocolo TCP establece conexiones entre dos puntos finales de comunicación, llamados sockets.
+● De esta manera, el intercambio de datos puede producirse en las dos direcciones.
+● En las conexiones bidireccionales, como las que crea Websocket, se intercambian datos en ambas direcciones al mismo tiempo.
+● La ventaja de usar Websocket es acceder de forma más rápida a los datos.
+● Websocket permite una comunicación directa y en tiempo real entre una aplicación web y un servidor Websocket.
+¿Para qué se utiliza Websocket?
+● Para establecer conexiones de forma rápida. Por ejemplo: chats de asistencia técnica, tickers de noticias o de actualizaciones de bolsa en directo, servicios de mensajería instantánea y juegos en tiempo real.
+● Websocket también resulta muy útil en las redes sociales para establecer conexiones en directo con otras personas, así como para enviar y recibir mensajes instantáneos. Permite obtener altas velocidades de transmisión y limitar los tiempos de latencia.
+Desventajas uso de Http en chat
+● El uso tradicional de las conexiones HTTP tiene el inconveniente de que el cliente siempre carga la página HTML entera.
+● Para resolver el problema se desarrolló la tecnología AJAX. No obstante, trae la desventaja de establecer conexiones unidireccionales. Al permitir la comunicación en una sola dirección daría lugar a largos tiempos de espera en las intensivas aplicaciones de hoy en día, especialmente en los chats.
+Ventajas uso de Websocket en chat
+● Websocket crea conexiones bidireccionales que permiten el intercambio de datos en ambos sentidos, lo cual hace posible el contacto directo con el navegador y, con ello, permite cortos periodos de carga.
+● En cuanto se envía un mensaje, como podría ser uno en un chat de soporte técnico, este llega y se muestra directamente al otro lado.
+Resumen
+● Websocket no es un sustituto total de HTTP, pero puede usarse como canal de comunicación eficiente y bidireccional siempre que se necesite dar o recibir información en tiempo real.
+● El protocolo Websocket está muy vinculado con el desarrollo de HTML5: un intento de hacer la web más rápida, más dinámica y más segura. Permite a las aplicaciones web reaccionar mucho más rápido que con la comunicación HTTP convencional. Sin embargo, esto no significa que haya que reemplazar el protocolo tradicional: a pesar de la existencia de Websocket, HTTP sigue siendo un estándar clave en Internet.
+Socket.io
+Socket.IO es una biblioteca de JavaScript para aplicaciones web en tiempo real. Permite la comunicación bidireccional en tiempo real entre servidores y clientes web.
+Tiene dos partes:
+● Una biblioteca del lado del cliente que se ejecuta en el navegador.
+● Una biblioteca del lado del servidor para Node.js.
+Ambos componentes tienen una API casi idéntica. Al igual que Node.js, está impulsado por eventos.
+Socket.io: características
+● Socket.IO utiliza principalmente el protocolo Websocket proporcionando la misma interfaz.
+● Se puede usar como un contenedor para Websocket aunque proporciona muchas más funciones, incluida la transmisión a múltiples sockets, el almacenamiento de datos asociados con cada cliente y E/S asíncronas.
+● Se puede instalar con npm.
+Sus principales características son:
+● Fiabilidad: Las conexiones se establecen incluso en presencia de:
+    ➢ proxies y balanceadores de carga.
+    ➢ firewall personal y software antivirus.
+● Soporte de reconexión automática: A menos que se le indique lo contrario, un cliente desconectado intentará siempre volver a conectarse, hasta que el servidor vuelva a estar disponible.
+● Detección de desconexión: Se implementa un mecanismo de heartbeat, lo que permite que tanto el servidor como el cliente sepan cuando el otro ya no responde.
+● Soporte binario: Se puede emitir cualquier estructura de datos serializable, que incluye:
+    ➢ ArrayBuffer y Blob en el navegador
+    ➢ ArrayBuffer y Buffer en Node.js
+Socket.IO permite la comunicación bidireccional basada en eventos en tiempo real.
+Consiste en
+● Un servidor Node.js
+● Una librería cliente de Javascript para el navegador o un cliente Node.js
+Pasos a seguir
+1. Crear nuestro directorio de trabajo e instalar socket.io y express.
+2. Una vez instalados dichos módulos agregamos un archivo index.html y un server.js
+3. Crearemos una carpeta (en este caso se llamará public). En esta carpeta agregaremos un index.js y un archivo style.css
