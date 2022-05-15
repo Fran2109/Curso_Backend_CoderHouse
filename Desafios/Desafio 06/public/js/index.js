@@ -1,20 +1,24 @@
 const socket = io()
 
-socket.on('connectionToServer', ({ array_productos }) => {
+socket.on('connectionToServer', async ({ array_productos }) => {
     mostrarProductos(array_productos);
+    await mostrarFormulario();
+    agregarFuncionABotones();
 });
 
 socket.on('actualizarTabla', ({ array_productos }) => {
     mostrarProductos(array_productos);
 });
 
-const btn = document.getElementById('botonEnviar')
-btn.addEventListener('click', event => {
-    const title = document.getElementById('title').value
-    const price = document.getElementById('price').value
-    const thumbnail = document.getElementById('thumbnail').value
-    socket.emit('agregarProducto', { title, price, thumbnail })
-})
+function agregarFuncionABotones() {
+    const btn = document.getElementById('botonEnviar')
+    btn.addEventListener('click', event => {
+        const title = document.getElementById('title').value
+        const price = document.getElementById('price').value
+        const thumbnail = document.getElementById('thumbnail').value
+        socket.emit('agregarProducto', { title, price, thumbnail })
+    })
+}
 
 async function mostrarProductos(array_productos) {
     const divProductos = document.getElementById('tableProducts');
@@ -35,4 +39,13 @@ function armarHtmlRemoto(url, contexto) {
 
 function buscarPlantilla(url) {
     return fetch(url).then(res => res.text())
+}
+
+async function mostrarFormulario() {
+    const divProductos = document.getElementById('formProducts');
+    divProductos.innerHTML = await armarFormulario()
+}
+
+async function armarFormulario() {
+    return armarHtmlRemoto('templates/form.handlebars', {})
 }
