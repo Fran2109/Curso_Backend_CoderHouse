@@ -1,0 +1,23 @@
+<h1 style="color:blue;">Centro de Mensajes</h1>
+<br>
+<div class="row">
+    <div class="col">
+        <input id="email" type="mail" class="form-control" placeholder="mail@example.com.ar">
+    </div>
+    <div class="col">
+        <input id="mensaje" type="text" class="form-control" placeholder="Message">
+    </div>
+</div>
+<button id="botonEnviarMensaje" class="btn btn-success mt-3" >Enviar</button>
+<hr>
+{{#if hayMensajes}}
+    {{#each array_mensajes}}
+        <div class="row">
+            <span style="color:blue;"><b>{{email}}</b>
+            <span style="color:black;"> [{{fechaString}}] : </span>
+            <span style="color:green;"> {{mensaje}}</span>
+        </div>
+    {{/each}}
+{{else}}
+    <h3 class="alert alert-danger">No se encontraron Mensajes</h3>
+{{/if}}

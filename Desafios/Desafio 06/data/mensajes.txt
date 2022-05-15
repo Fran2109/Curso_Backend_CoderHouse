@@ -1,0 +1,14 @@
+[
+  {
+    "email": "franciscofilosi3@gmail.com",
+    "mensaje": "Hola",
+    "fechaString": "2022/5/15 13:24:38",
+    "id": "1652631878361"
+  },
+  {
+    "email": "ritthy.bailey@picotech.com",
+    "mensaje": "Bien y vos?",
+    "fechaString": "2022/5/15 13:43:9",
+    "id": "1652632989959"
+  }
+]
