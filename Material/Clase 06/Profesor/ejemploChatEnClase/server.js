@@ -11,7 +11,7 @@ const eventoCnxController = require('./controllers/sockets/socketControllers.js'
 
 app.use(express.static('public'))
 
-app.use('/', webRouter)
+app.use('/', webRouter.inicio)
 
 io.on('connection', socket => eventoCnxController(socket, io))
 
