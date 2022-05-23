@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "nombre": "Casa",
+    "descripcion": "Lugar donde Vivir",
+    "precio": "25.000.000",
+    "foto": "uploads\\undefined.jpg",
+    "id": "1653245563408"
+  },
+  {
+    "nombre": "Casa",
+    "descripcion": "Lugar donde Vivir",
+    "precio": "25.000.000",
+    "foto": "uploads\\1653245766447.jpg",
+    "id": "1653245766453"
+  },
+  {
+    "nombre": "Casa",
+    "descripcion": "Lugar donde Vivir",
+    "precio": "25.000.000",
+    "foto": "uploads\\1653269483248.jpg",
+    "id": "1653269483295"
+  },
+  {
+    "nombre": "Casa",
+    "descripcion": "Lugar donde Vivir",
+    "precio": "25.000.000",
+    "foto": "uploads\\1653269483931.jpg",
+    "id": "1653269483934"
+  },
+  {
+    "nombre": "Casa",
+    "descripcion": "Lugar donde Vivir",
+    "precio": "25.000.000",
+    "foto": "uploads\\1653269484623.jpg",
+    "id": "1653269484624"
+  }
+]

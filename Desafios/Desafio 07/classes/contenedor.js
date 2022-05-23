@@ -19,9 +19,9 @@ class contenedor {
             error.tipo = 'Product not found'
             throw error;
         }
-        productoBuscado.title = producto.title;
-        productoBuscado.price = producto.price;
-        productoBuscado.thumbnail = producto.thumbnail;
+        Object.keys(producto).forEach(el => {
+            productoBuscado[el]=producto[el];
+        });
         await sobreescribrirArchivo(this.nombreArchivo, contenido);
         return productoBuscado;
     }

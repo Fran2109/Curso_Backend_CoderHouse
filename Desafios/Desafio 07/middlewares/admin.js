@@ -4,7 +4,7 @@ export function soloParaAdmins(req, res, next) {
     if (esAdmin) {
         next()
     } else {
-        res.sendStatus(403)
+        res.status(403).json( { error : 403, descripcion: `ruta '${req.baseUrl}${req.url}' método '${req.method}' no autorizada` } )
     }
 }
 
