@@ -1,0 +1,41 @@
+Clase 08
+Base de Datos
+● La base de datos es un repositorio persistente que nos permite almacenar gran número de información de una forma organizada para su futura consulta, realización de búsquedas, nuevo ingreso de datos y muchas otras operaciones. 
+● Un servidor de base de datos es un contenedor que puede alojar un gran número de bases de datos y ofrece los servicios para conectarlas a los clientes.
+● Mediante los clientes podemos interactuar con las bases de datos y estos pueden estar implementados en modo consola, en modo aplicación gráfica o desde nuestra aplicación de servidor.
+● La arquitectura cliente-servidor es un modelo de diseño de software en el que las tareas se reparten entre los proveedores de recursos o servicios, llamados servidores, y los demandantes, llamados clientes
+● Un cliente realiza peticiones a otro programa, el servidor, quien le da respuesta
+● Un cliente de base de datos se conecta e interactúa con el servidor de base de datos
+
+Cliente CLI (Command Line Interface): Es un cliente que interactúa con la base de datos mediante el uso de una consola.
+Cliente GUI (graphical user interface): Es un cliente que interactúa con la base de datos mediante el uso de una aplicación gráfica.
+Cliente Web : Es un cliente que interactúa con la base de datos a través de una página web mediante el uso de un navegador
+Cliente de aplicación:  Es un cliente que está implementado dentro de nuestra aplicación de backend y sirve para que nuestro programa se conecte e interactúe con la base de datos.
+
+CRUD
+● En informática, CRUD es el acrónimo de "Crear, Leer, Actualizar y Borrar" (del original en inglés: Create, Read, Update and Delete), que se usa para referirse a las funciones básicas en bases de datos o la capa de persistencia en un software
+● CRUD resume las tareas requeridas por un usuario para crear y gestionar datos, ya sea para el manejo de bases de datos o para el uso de aplicaciones.
+
+SQL
+● La sigla que se conoce como SQL corresponde a la expresión inglesa Structured Query Language (en español “Lenguaje de Consulta Estructurado”)
+● SQL es un tipo de lenguaje vinculado con la gestión de bases de datos de carácter relacional, que permite la especificación de distintas clases de operaciones entre éstas. 
+● Gracias a la utilización del álgebra y de cálculos relacionales, el SQL brinda la posibilidad de realizar consultas con el objetivo de recuperar información de las bases de datos de manera sencilla.
+
+MySQL y MariaDB
+● MySQL es un sistema de gestión de bases de datos relacional desarrollado bajo licencia dual: Licencia pública general/Licencia comercial por Oracle Corporation y está considerada como la base de datos de código abierto más popular del mundo.
+● MariaDB es un sistema de gestión de bases de datos derivado de MySQL con licencia GPL (General Public License).
+● MySQL y MariaDB son compatibles entre sí a nivel funcional.
+
+Knex.js
+● Knex.js es un generador de consultas SQL con "baterías incluidas" para Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle y Amazon Redshift, diseñado para ser flexible, portátil y fácil de usar.
+● Cuenta con una interfaz basada en callbacks y en promesas.
+● Knex se puede utilizar como un generador de consultas SQL en Node.JS.
+● Se puede instalar desde npm con el comando npm i knex
+● Además debemos instalar las dependencias de las base de datos con la cual vamos a trabajar: npm i -> pg para PostgreSQL y Amazon Redshift, mysql para MySQL y MariaDB, sqlite3 para SQLite3 ó mssql para MSSQL.
+
+Inicialización del proyecto e instalación de dependencias
+1. Creamos un proyecto Node.js con npm init -y
+2. Instalamos la dependencias Knex y mysql con npm i knex mysql (mysql es el plugin necesario para trabajar con MariaDB) 
+3. Levantamos el motor de base de datos MariaDB con XAMPP.
+4. Creamos los archivos necesarios para probar los comandos SQL necesarios en acciones CRUD.
+
