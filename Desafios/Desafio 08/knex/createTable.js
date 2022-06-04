@@ -1,7 +1,6 @@
 import crearKnex from 'knex';
 
-export const createTableProductos = (dbConfig, tabla) => {
-    const knex = crearKnex(dbConfig)
+export const createTableProductos = (knex, tabla) => {
     knex.schema.hasTable(tabla)
         .then(exists => {
             if (!exists) {
@@ -18,13 +17,9 @@ export const createTableProductos = (dbConfig, tabla) => {
         .catch(error => {
             console.log(error);
         })
-        .finally(() => {
-            knex.destroy();
-        })
 }
 
-export const createTableMensajes = (dbConfig, tabla) => {
-    const knex = crearKnex(dbConfig)
+export const createTableMensajes = (knex, tabla) => {
     knex.schema.hasTable(tabla)
         .then(exists => {
             if (!exists) {
@@ -40,8 +35,5 @@ export const createTableMensajes = (dbConfig, tabla) => {
         })
         .catch(error => {
             console.log(error);
-        })
-        .finally(() => {
-            knex.destroy();
         })
 }
