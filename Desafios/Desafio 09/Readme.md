@@ -98,7 +98,10 @@ use ecommerce
 ~~~
 ### Pruebas
 #### Permitidas
+~~~
 db.productos.find()
+db.productos.find({$and: [{"price": {$gte: 1000}},{"price": {$lte: 3000}}]})
+~~~
 #### No Permitidas
 db.productos.insertOne({ "title": "CasaAgregada", "price": "5500", "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-science-vol-1-1/512/school_building_education_high-256.png" })
 db.productos.deleteMany({})
