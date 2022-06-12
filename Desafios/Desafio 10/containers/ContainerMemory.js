@@ -17,7 +17,7 @@ class ContainerMemory {
     getById(id){
         const elem = this.objectArray.find(elem => elem.id == id)
         if (!elem) {
-            throw new Error(`No existe el ID buscado`)
+            throw new Error(`Error al Leer: Elemento no encontrado`)
         } else {
             return elem
         }
@@ -25,21 +25,22 @@ class ContainerMemory {
     getAll(){
         return [ ...this.objectArray ];
     }
-    updateById(elem){
-        const index = this.objectArray.findIndex(p => p.id == elem.id)
+    updateById(id, elem){
+        const index = this.objectArray.findIndex(p => p.id == id)
         if (index == -1) {
-            throw new Error(`Error al actualizar: elemento no encontrado`)
+            throw new Error(`Error al Actualizar: Elemento no encontrado`)
         } else {
-            this.objectArray[ index ] = elem
+            this.objectArray[ index ] = { ...elem, id: parseInt(id, 10) }
             return elem
         }
     }
     deleteById(id){
         const index = this.objectArray.findIndex(elem => elem.id == id)
         if (index == -1) {
-            throw new Error(`Error al borrar: elemento no encontrado`)
+            throw new Error(`Error al Borrar: Elemento no encontrado`)
         } else {
-            return this.elementos.splice(index, 1)[ 0 ]
+            console.log(index);
+            return this.objectArray.splice(index, 1)
         }
     }
     deleteAll(){

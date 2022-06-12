@@ -1,0 +1,23 @@
+import config from '../config.js'
+
+let productDao;
+let cartDao;
+
+switch (config.persistence) {
+    case 'fileSystem':
+        const { default : productDaoFileSystem } = await import('./product/productDaoFileSystem.js');
+        productDao = new productDaoFileSystem(config.fileSystem.products);
+        const { default : cartDaoFileSystem } = await import('./cart/cartDaoFileSystem.js');
+        cartDao = new cartDaoFileSystem(config.fileSystem.carts);
+        break
+    case 'memory':
+        const { default : productDaoMemory} = await import('./product/productDaoMemory.js')
+        productDao = new productDaoMemory();
+        const { default : cartDaoMemory} = await import('./cart/cartDaoMemory.js')
+        cartDao = new cartDaoMemory();
+        break
+    default:
+        throw new Error('Persistence not supported');
+}
+
+export { productDao, cartDao }
