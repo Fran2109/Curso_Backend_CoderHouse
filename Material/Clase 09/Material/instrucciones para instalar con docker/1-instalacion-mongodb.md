@@ -18,7 +18,7 @@
         -v <algun_directorio>:/data/db \
         -e MONGO_INITDB_ROOT_USERNAME=<usuario> \
         -e MONGO_INITDB_ROOT_PASSWORD=<contraseña> \
-        -p <puerto_en_mi_OS>:<puerto_en_el_contenedor> \
+        -p <puerto_en_mi_OS>:27017 \
         -d mongo
 
 ## Ejemplo
