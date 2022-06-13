@@ -1,4 +1,4 @@
-import { productDao } from '../daos/index.js';
+import { productDao, cartDao } from '../daos/index.js';
 
 export const productsController = {
     getAll: async (req, res) => {
@@ -33,6 +33,13 @@ export const productsController = {
         try {
             const { id } = req.params;
             const product = await productDao.deleteById(id);
+            const carts = await cartDao.getAll();
+            for(const cart of carts){
+                if(cart.products.includes(Number(id))){
+                    cart.products = cart.products.filter(idActual => idActual != id);
+                    await cartDao.updateById(cart.id, cart);
+                }
+            }
             res.json(product);
         } catch (error) {
             res.status(404).json({message: error.message});
@@ -40,6 +47,10 @@ export const productsController = {
     },
     deleteAll: async (req, res) => {
         await productDao.deleteAll();
+        const carts = await cartDao.getAll();
+        for(const cart of carts){
+            await cartDao.clearCart(cart.id);
+        }
         res.json({message: 'Todos los productos fueron eliminados'});
     }
 }

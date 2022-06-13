@@ -31,5 +31,5 @@ export default {
             }
         }
     },
-    persistence: 'fileSystem',
+    persistence: 'memory',
 }

@@ -14,10 +14,28 @@ export const cartsController = {
             res.status(404).json({message: error.message});
         }
     },
+    getProducts: async (req, res) => {
+        try {
+            const { id } = req.params;
+            const results = await cartDao.getProductsInCart(id);
+            res.status(200).json(results);
+        } catch (error) {
+            res.status(404).json({message: error.message});
+        }
+    },
     emptyCart: async (req, res) => {
         try {
             const { id } = req.params;
             const cart = await cartDao.clearCart(id);
+            res.status(201).json(cart);
+        } catch (error) {
+            res.status(404).json({message: error.message});
+        }
+    },
+    deleteFromCart: async(req, res) => {
+        try {
+            const { id, idProd } = req.params;
+            const cart = await cartDao.deleteProductFromCart(id, idProd);
             res.status(201).json(cart);
         } catch (error) {
             res.status(404).json({message: error.message});

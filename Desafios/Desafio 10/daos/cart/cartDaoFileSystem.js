@@ -8,9 +8,12 @@ class cartDaoFileSystem extends ContainerFileSystem {
         const cart = await this.getById(id);
         const products = [];
         const { productDao } = await import('../index.js');
-        cart.products.forEach(element => {
-            products.push(productDao.getById(element.id));
-        });
+        for(const idproduct in cart.products){
+            try {
+                let product = await productDao.getById(idproduct);
+                products.push(product);
+            } catch (error) { }
+        }
         return products;
     }
     async addProductToCart(idCart, idproduct) {
@@ -26,6 +29,16 @@ class cartDaoFileSystem extends ContainerFileSystem {
         cart.products = [];
         await this.updateById(cart.id, cart);
         return cart;
+    }
+    async deleteProductFromCart(idCart, idProduct) {
+        const cart = await this.getById(idCart);
+        if(cart.products.includes(Number(idProduct))){
+            cart.products = cart.products.filter(idActual => idActual != idProduct);
+            await this.updateById(cart.id, cart);
+            return cart;
+        } else {
+            throw new Error("El producto no está en el carrito");
+        }
     }
 }
 

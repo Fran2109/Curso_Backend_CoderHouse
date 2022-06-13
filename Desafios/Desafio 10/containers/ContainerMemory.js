@@ -39,7 +39,6 @@ class ContainerMemory {
         if (index == -1) {
             throw new Error(`Error al Borrar: Elemento no encontrado`)
         } else {
-            console.log(index);
             return this.objectArray.splice(index, 1)
         }
     }
