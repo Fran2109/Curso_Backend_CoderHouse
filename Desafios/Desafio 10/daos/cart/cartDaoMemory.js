@@ -40,6 +40,23 @@ class cartDaoMemory extends ContainerMemory {
             throw new Error("El producto no está en el carrito");
         }
     }
+    async deleteProductFromAllCarts(idProduct) {
+        const carts = await cartDao.getAll();
+        for(const cart of carts){
+            if(cart.products.includes(Number(idProduct))){
+                cart.products = cart.products.filter(idActual => idActual != idProduct);
+                await cartDao.updateById(cart.id, cart);
+            }
+        }
+    }
+    async deleteAllProductsInCarts() {
+        const carts = await cartDao.getAll();
+        for(const cart of carts){
+            if(cart.products.length > 0){
+                await cartDao.clearCart(cart.id);
+            }
+        }
+    }
 }
 
 export default cartDaoMemory

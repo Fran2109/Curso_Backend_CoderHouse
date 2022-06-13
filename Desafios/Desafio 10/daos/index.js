@@ -16,6 +16,12 @@ switch (config.persistence) {
         const { default : cartDaoFirebase } = await import('./cart/cartDaoFirebase.js');
         //cartDao = new cartDaoFirebase(config.firebase.tokenUrl);
         break
+    case 'knex':
+        const { default : productDaoKnex } = await import('./product/productDaoKnex.js');
+        const { default : cartDaoKnex } = await import('./cart/cartDaoKnex.js');
+        cartDao = new cartDaoKnex(config.knex.config, config.knex.carts.table, config.knex.carts.createTable);
+        productDao = new productDaoKnex(config.knex.config, config.knex.products.table, config.knex.products.createTable);
+        break;
     case 'memory':
         const { default : productDaoMemory} = await import('./product/productDaoMemory.js')
         productDao = new productDaoMemory();
