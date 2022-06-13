@@ -22,12 +22,11 @@ class ContainerKnex {
         return producto;
     }
     async getById(id) {
-        let content = [];
-        content = await this.conexion.from(this.tabla).where('id', id).select('*');  
-        if(content.length == 0){
+        let answer = await this.conexion.from(this.tabla).where('id', id).first();
+        if(!answer){
             throw new Error(`Error al Leer: Elemento no encontrado`)
         }
-        return content
+        return answer
     }
     async getAll() {
         let content = await this.conexion.from(this.tabla).select('*');

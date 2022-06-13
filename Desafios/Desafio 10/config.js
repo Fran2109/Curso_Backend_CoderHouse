@@ -26,7 +26,7 @@ export default {
                         if (!exists) {
                             knex.schema.createTable(tabla, tabla => {
                                 tabla.increments('id'),
-                                tabla.string('timespan', 100).notNullable()
+                                tabla.string('timestamp', 100).notNullable()
                             }).then(() => {
                                 console.log(`Tabla ${tabla} creada!`)
                             })

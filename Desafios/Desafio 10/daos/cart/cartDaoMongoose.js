@@ -1,5 +1,4 @@
 import ContainerMongoose from "../../containers/ContainerMongoose.js";
-import mongoose from "mongoose";
 
 class cartDaoMongoose extends ContainerMongoose{
     constructor(collection, url, options){
