@@ -1,0 +1,32 @@
+[
+  {
+    "timestamp": "1655081478706",
+    "products": [],
+    "id": 1
+  },
+  {
+    "timestamp": "1655081682155",
+    "products": [],
+    "id": 2
+  },
+  {
+    "timestamp": "1655081693259",
+    "products": [],
+    "id": 3
+  },
+  {
+    "timestamp": "1655081693620",
+    "products": [],
+    "id": 4
+  },
+  {
+    "timestamp": "1655081701759",
+    "products": [],
+    "id": 5
+  },
+  {
+    "timestamp": "1655081703179",
+    "products": [],
+    "id": 6
+  }
+]
