@@ -1,9 +1,11 @@
 {{#if hayMensajes}}
+    <h1 style="color:blue;">{{titulo}}</h1>
     {{#each array_mensajes}}
         <div class="row">
-            <span style="color:blue;"><b>{{email}}</b>
+            <span style="color:blue;"><b>{{author.email}}</b>
             <span style="color:black;"> [{{dateString}}] : </span>
-            <span style="color:green;"> {{message}}</span>
+            <span style="color:green;"> {{text}}</span>
+            <img src="{{author.avatar}}" alt="{{author.email}}" width="50" height="50">
         </div>
     {{/each}}
 {{else}}

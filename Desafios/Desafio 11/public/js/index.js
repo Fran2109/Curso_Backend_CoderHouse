@@ -1,4 +1,15 @@
 const socket = io();
+const { denormalize, schema } = normalizr;
+
+const schemaAuthor = new schema.Entity('author', {}, { idAttribute: 'email' });
+const schemaMessages = new schema.Entity('messages', {
+    author: schemaAuthor
+}, { idAttribute: '_id' });
+
+const denormalizeMessages = (messages) => {
+    const messagesDenormalized = denormalize(messages.result, [schemaMessages], messages.entities);
+    return messagesDenormalized;
+}
 
 socket.on('connectionToServer', async ({ array_productos, array_mensajes }) => {
     await mostrar('formProducts', 'templates/form.handlebars', {});
@@ -22,7 +33,9 @@ const actualizarProductos = async (array_productos) => {
 }
 
 const actualizarMensajes = async (array_mensajes) => {
-    let context = { array_mensajes, hayMensajes: array_mensajes.length > 0 }
+    const mensajesDenormalized = denormalizeMessages(array_mensajes);
+    const compresion = (JSON.stringify(array_mensajes).length) * 100 /JSON.stringify(mensajesDenormalized).length;
+    let context = { array_mensajes: mensajesDenormalized, hayMensajes: mensajesDenormalized.length > 0, titulo: `Porcentaje de Compresion: ${compresion.toFixed(2)}%` }
     await mostrar('tableMensajes', 'templates/tableMessages.handlebars', context);
 }
 
@@ -40,13 +53,31 @@ function agregarFuncionABotones() {
     })
     const btn2 = document.getElementById("botonEnviarMensaje")
     btn2.addEventListener('click', event => {
-        const email = document.getElementById('email').value
-        const message = document.getElementById('message').value
+        const email = document.getElementById('email').value;
+        const nombre = document.getElementById('nombre').value;
+        const apellido = document.getElementById('apellido').value;
+        const edad = document.getElementById('edad').value;
+        const alias = document.getElementById('alias').value;
+        const avatar = document.getElementById('avatar').value;
+        const mensaje = document.getElementById('mensaje').value;
         const fecha = new Date();
-        const dateString = fecha.getFullYear() + "/" + (fecha.getMonth() + 1) + "/" + fecha.getDate() + " " + fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
-        if(email.length>0 && message.length>0){
-            socket.emit('enviarMensaje', { email, message, dateString })
-        } else {
+        const fechaString = `${fecha.getFullYear()}/${fecha.getMonth() + 1}/${fecha.getDate()} ${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()}`;
+        if(email.length>0 && nombre.length>0 && apellido.length>0 && edad.length>0 && alias.length>0 && avatar.length>0 && mensaje.length>0){
+            const data = {
+                author: {
+                    email: email, 
+                    nombre: nombre, 
+                    apellido: apellido, 
+                    edad: edad, 
+                    alias: alias,
+                    avatar: avatar
+                },
+                text: mensaje,
+                dateString: fechaString
+            }
+            socket.emit('enviarMensaje', data)
+        }
+        else{
             alert('Todos los campos son obligatorios')
         }
     })

@@ -46,6 +46,13 @@ class ContainerMongoose {
     async deleteAll(){
         await this.collection.deleteMany({});
     }
+    populate(generateObject, cant = 5){
+        const array = [];
+        for (let i = 0; i < cant; i++) {
+            array.push(generateObject());
+        }
+        return array;
+    }
 }
 
 export default ContainerMongoose;

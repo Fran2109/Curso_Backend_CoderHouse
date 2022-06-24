@@ -16,8 +16,15 @@ const mongoose = {
         messages:{
             name: "messages",
             schema: {
-                email: { type: String, require: true },
-                message: { type: String, require: true },
+                author: {
+                    email: { type: String, require: true }, 
+                    nombre: { type: String, require: true },
+                    apellido: { type: String, require: true },
+                    edad: { type: Number, require: true },
+                    alias: { type: String, require: true },
+                    avatar: { type: String, require: true },
+                },
+                text: { type: String, require: true },
                 dateString: { type: String, require: true }
             }
         }

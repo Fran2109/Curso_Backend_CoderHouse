@@ -1,34 +1,51 @@
 import ContainerMongoose from '../containers/ContainerMongoose.js';
 import mongoose from '../config.js';
 import { faker } from '@faker-js/faker'
+import { normalize, denormalize, schema } from 'normalizr';
+import util from 'util';
 
 const productos = new ContainerMongoose(mongoose.collections.products, mongoose.url, mongoose.options);
 const mensajes = new ContainerMongoose(mongoose.collections.messages, mongoose.url, mongoose.options);
 
+function print(objeto) {
+    console.log(util.inspect(objeto, false, 12, true))
+}
+
+const generateObject = () => {
+    return {
+        title: faker.vehicle.vehicle(),
+        thumbnail: faker.image.transport(640, 480, true),
+        price: faker.random.numeric(7)
+    }
+}
+
+const schemaAuthor = new schema.Entity('author', {}, { idAttribute: 'email' });
+const schemaMessages = new schema.Entity('messages', {
+    author: schemaAuthor
+}, { idAttribute: '_id' });
+
+const normalizeMessages = (messages) => {
+    const messagesNormalized = normalize(messages, [schemaMessages]);
+    return messagesNormalized;
+}
+
 async function socketController(socket, io) {
-    const array_productos = await productos.getAll();
-    const array_mensajes = await mensajes.getAll();
-    socket.emit('connectionToServer', { array_productos, array_mensajes })
+    socket.emit('connectionToServer', { 
+        array_productos: await productos.getAll(), 
+        array_mensajes: normalizeMessages(await mensajes.getAll())
+    });
+
     socket.on('connectionToTest', () => {
-        const productsTest = [];
-        for (let i = 0; i < 5; i++) {
-            productsTest.push({
-                id: faker.random.uuid(),
-                title: faker.vehicle.vehicle(),
-                thumbnail: faker.image.transport(),
-                price: faker.random.numeric(8)
-            })
-        }
-        socket.emit('sendTest', { productsTest })
+        const productsTest = productos.populate(generateObject);
+        socket.emit('sendTest', { productsTest });
     });
     socket.on('agregarProducto', async (data) => {
         await productos.save(data);
         io.sockets.emit('actualizarTabla', { array_productos: await productos.getAll() })
     })
     socket.on("enviarMensaje", async (data) => {
-        console.log(data);
         await mensajes.save(data);
-        io.sockets.emit('actualizarMensajes', { array_mensajes: await mensajes.getAll() })
+        io.sockets.emit('actualizarMensajes', { array_mensajes: normalizeMessages(await mensajes.getAll()) })
     })
     socket.on("eliminarProductos", async () => {
         await productos.deleteAll();
@@ -36,7 +53,7 @@ async function socketController(socket, io) {
     })
     socket.on("eliminarMensajes", async () => {
         await mensajes.deleteAll();
-        io.sockets.emit('actualizarMensajes', { array_mensajes: await mensajes.getAll() })
+        io.sockets.emit('actualizarMensajes', { array_mensajes: normalizeMessages(await mensajes.getAll()) })
     })
     socket.on("eliminarProducto", async (id) => {
         await productos.deleteById(id);
@@ -45,9 +62,6 @@ async function socketController(socket, io) {
     socket.on("editarProducto", async (id, producto) => {
         await productos.updateById(id, producto);
         io.sockets.emit('actualizarTabla', { array_productos: await productos.getAll() })
-    })
-    socket.on("connectionToTest", async () => {
-        console.log("gfdgs");
     })
 }
 
