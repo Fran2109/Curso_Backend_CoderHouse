@@ -7,7 +7,7 @@ Las Cookies son archivos que podemos guardar del lado del cliente, en el navegad
 * Al almacenarse del lado del cliente, el espacio con el que se cuenta es limitado, por lo que se recomienda elegir de forma adecuada lo que se vaya a guardar como cookie.
 * Hay que recordar que no se deben almacenar datos sensibles en las cookies.
 ### Empezando a usar cookies
-Primero hay que instalar el paquete de cookie parser para poder utilizarlas: ````npm i cookie-parser --save```
+Primero hay que instalar el paquete de cookie parser para poder utilizarlas: ```npm i cookie-parser --save```
 Hay que requerirlo e incluirlo en la aplicación en la que se lo va a utilizar. Es un middleware que se requiere a nivel de aplicación.
 ```JavaScript
 const express = require('express')
