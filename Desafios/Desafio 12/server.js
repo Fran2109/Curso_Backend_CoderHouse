@@ -20,7 +20,7 @@ app.use(session({
         mongoOptions: advancedOptions
     }),
     secret: 'shhhhhhhhhhhhhhhhhhhh',
-    resave: false,
+    resave: true,
     saveUninitialized: false,
     cookie: {
         maxAge: 60000

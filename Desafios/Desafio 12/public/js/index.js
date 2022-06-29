@@ -145,13 +145,6 @@ const cartelBienvenido = () => {
 
     const boton = document.getElementById("buttonLogout")
     boton.addEventListener('click', event => {
-        fetch('/api/logout', options)
-        .then(res => res.json())
-        .then(data => {
-            if(!data.logged){
-                window.location.href = '/logout';
-            }
-        })
-        .catch(err => { console.log(err); })
+        window.location.href = '/logout';
     })
 }
