@@ -13,6 +13,7 @@ passport.use('registro', new Strategy({
 },
     (req, username, password, done) => {
         try {
+            console.log(req.body)
             const datosUsuario = req.body
             const usuario = registrarUsuario(req.body)
             done(null, usuario)

@@ -15,6 +15,7 @@ passport.use('signup', new LocalStrategy({
   passReqToCallback: true
 },
   (req, username, password, done) => {
+    console.log(username);
     User.findOne({ 'username': username }, function (err, user) {
 
       if (err) {
