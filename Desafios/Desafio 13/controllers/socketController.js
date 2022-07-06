@@ -1,12 +1,12 @@
-import ContainerMongoose from '../containers/ContainerMongoose.js';
+import containerMongoose from '../containers/containerMongoose.js';
 import { mongoose } from '../config.js';
 import { faker } from '@faker-js/faker'
 import { normalize, schema } from 'normalizr';
 import util from 'util';
 import { setTimeout } from 'timers';
 
-const productos = new ContainerMongoose(mongoose.collections.products, mongoose.url, mongoose.options);
-const mensajes = new ContainerMongoose(mongoose.collections.messages, mongoose.url, mongoose.options);
+const productos = new containerMongoose(mongoose.collections.products, mongoose.url, mongoose.options);
+const mensajes = new containerMongoose(mongoose.collections.messages, mongoose.url, mongoose.options);
 
 function print(objeto) {
     console.log(util.inspect(objeto, false, 12, true))

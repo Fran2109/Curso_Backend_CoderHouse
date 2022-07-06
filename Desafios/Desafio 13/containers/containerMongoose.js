@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-class ContainerMongoose {
+class containerMongoose {
     constructor(collection, url, options) {
         mongoose.connect(url, options)
         .then(() => {
@@ -73,4 +73,4 @@ class ContainerMongoose {
     }
 }
 
-export default ContainerMongoose;
+export default containerMongoose;

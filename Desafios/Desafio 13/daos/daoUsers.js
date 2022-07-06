@@ -1,6 +1,6 @@
-import ContainerMongoose from "../containers/ContainerMongoose.js";
+import containerMongoose from "../containers/containerMongoose.js";
 
-class daoUsers extends ContainerMongoose{
+class daoUsers extends containerMongoose{
     constructor(collection, url, options) {
         super(collection, url, options)
     }
