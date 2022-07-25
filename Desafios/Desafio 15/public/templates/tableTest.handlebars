@@ -1,0 +1,17 @@
+<h2>Productos de Prueba. Recargar para ver nuevos</h2>
+<div class="table-responsive">
+    <table class="table table-dark">
+        <tr style="color: yellow;">
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Imagen</th>
+        </tr>
+        {{#each productsTest}}
+            <tr>
+                <td>{{title}}</td>
+                <td>$ {{price}}</td>
+                <td><img src="{{thumbnail}}" alt="{{title}}" width="50"></td>
+            </tr>
+        {{/each}}
+    </table>
+</div>
