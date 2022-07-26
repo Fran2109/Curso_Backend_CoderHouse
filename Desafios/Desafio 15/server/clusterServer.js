@@ -10,7 +10,7 @@ export default function clusterServer(httpServer, port){
             cluster.fork();
         }
         cluster.on('exit', (worker, code, signal) => {
-            console.log(`Worker ${worker.process.pid} died`);
+            console.log(`Worker ${worker.process.pid} died!`);
             cluster.fork();
         });
     } else {

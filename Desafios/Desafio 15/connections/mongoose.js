@@ -1,20 +1,16 @@
 import mongoose from "mongoose";
 import { mongooseConfig } from '../configs/config.js';
+import { mongoUrl, mongoOptions } from '../configs/config.js';
+
 const { collections } = mongooseConfig;
 const { products, messages, users } = collections;
-import path from 'path';
-import dotenv from 'dotenv';
 
-const __dirname = process.cwd();
-dotenv.config({
-    path: path.resolve(__dirname, 'configs/config.env')
-})
 
 let productsCollection;
 let messagesCollection;
 let usersCollection;
 
-await mongoose.connect(process.env.MONGOURL, JSON.parse(process.env.MONGOOPTIONS))
+await mongoose.connect(mongoUrl, mongoOptions)
     .then(() => {
         productsCollection = mongoose.model(products.name, products.schema);
         messagesCollection = mongoose.model(messages.name, messages.schema);

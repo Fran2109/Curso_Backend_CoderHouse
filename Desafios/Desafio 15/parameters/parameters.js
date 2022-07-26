@@ -1,4 +1,5 @@
 import yargsParser from 'yargs/yargs';
+
 const yargs = yargsParser(process.argv.slice(2))
 
 const { port, mode } = yargs
@@ -10,6 +11,6 @@ const { port, mode } = yargs
         port: 8080,
         mode: 'FORK'
     })
-    .argv
+    .argv;
 
 export { port, mode };
