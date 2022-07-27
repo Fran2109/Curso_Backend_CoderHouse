@@ -13,6 +13,7 @@
 //pm2 start server.js --name="ServerX" --watch -i max -- PORT
 //pm2 start server.js --name="Server3" --watch -i max -- 8083
 //pm2 start server.js --name="Server4" --watch -i max -- 8084
+//pm2 start server.js --watch -i max
 
 //pm2 list
 //pm2 delete id/name

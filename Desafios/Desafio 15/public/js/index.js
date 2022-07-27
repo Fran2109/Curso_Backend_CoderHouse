@@ -1,6 +1,6 @@
 const socket = io();
 const { denormalize, schema } = normalizr;
-import { mostrar } from './../js/functions.js';
+import { mostrar } from './functions.js';
 
 const schemaAuthor = new schema.Entity('author', {}, { idAttribute: 'email' });
 const schemaMessages = new schema.Entity('messages', {

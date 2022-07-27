@@ -1,4 +1,4 @@
-import express, { json } from 'express';
+import express from 'express';
 // Session
 import { sessionHandler } from './middlewares/session.js';
 // Authentication

@@ -1,4 +1,5 @@
 process.on('message', msg => {
+    console.log("Ejecutando por el proceso " + process.pid);
     const numbers = {};
     for(let i = 1; i <= 1000; i++) {
         numbers[i] = 0;

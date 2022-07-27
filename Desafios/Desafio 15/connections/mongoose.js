@@ -10,6 +10,14 @@ let productsCollection;
 let messagesCollection;
 let usersCollection;
 
+/*try {
+  mongoose.connect(mongoUrl, mongoOptions);
+  productsCollection = mongoose.connection.collection(products);
+  messagesCollection = mongoose.connection.collection(messages);
+  usersCollection = mongoose.connection.collection(users);
+} catch (error) {
+    console.log(error);
+}*/
 await mongoose.connect(mongoUrl, mongoOptions)
     .then(() => {
         productsCollection = mongoose.model(products.name, products.schema);
