@@ -1,3 +1,5 @@
+import logger from "../logs/logger.js";
+
 class containerMongoose {
     constructor(collection) {
         this.collection = collection;
@@ -7,25 +9,27 @@ class containerMongoose {
             const added = new this.collection(elem);
             await added.save();
             return added;
-        } catch {
-            throw new Error(`Error al Insertar`)
+        } catch(err){
+            logger.error(`Error al Insertar: ${err.message}`);
+            throw new Error(`Error al Insertar: ${err.message}`)
         }
     }
     async getById(id){
         try{
             const element = await this.collection.findById(id).select({ __v: 0 }).lean();
             return element;
-        }catch
-        {
-            throw new Error(`Error al Leer: Elemento no encontrado`)
+        }catch(err) {
+            logger.error(`Error al Leer: ${err.message}`);
+            throw new Error(`Error al Leer: ${err.message}`)
         }
     }
     async getAll(){
         try{
             const elements = await this.collection.find().select({ __v: 0 }).lean();
             return elements;
-        } catch {
-            throw new Error('Error al Leer')
+        } catch(err) {
+            logger.error(`Error al Leer: ${err.message}`);
+            throw new Error(`Error al Leer: ${err.message}`)
         }
         
     }
@@ -34,8 +38,9 @@ class containerMongoose {
             const updated = await this.collection.findByIdAndUpdate(id, elem, { new: true });
             return updated;
         }
-        catch{
-            throw new Error(`Error al Actualizar: Elemento no encontrado`)
+        catch(err) {
+            logger.error(`Error al Actualizar: ${err.message}`);
+            throw new Error(`Error al Actualizar: ${err.message}`)
         }
     }
     async deleteById(id){
@@ -44,15 +49,17 @@ class containerMongoose {
             if(!deleted){ throw new Error(`Error al Borrar: Elemento no encontrado`) }
             return deleted;
         }
-        catch{
-            throw new Error(`Error al Borrar: Elemento no encontrado`)
+        catch(err) {
+            logger.error(`Error al Borrar: ${err.message}`);
+            throw new Error(`Error al Borrar: ${err.message}`)
         }
     }
     async deleteAll(){
         try{
             await this.collection.deleteMany({});
-        } catch {
-            throw new Error('Error al Borrar');
+        } catch(err) {
+            logger.error(`Error al Borrar: ${err.message}`);
+            throw new Error(`Error al Borrar: ${err.message}`)
         }
     }
     populate(generateObject, cant = 100){
