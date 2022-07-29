@@ -2,12 +2,10 @@ import MongoStore from 'connect-mongo';
 import path from 'path';
 import dotenv from 'dotenv';
 
-/*const __dirname = process.cwd();
+const __dirname = process.cwd();
 dotenv.config({
     path: path.resolve(__dirname, 'configs/config.env')
 })
-
-console.log(path.resolve(__dirname, 'configs/config.env'))*/
 
 const mongooseConfig = {
     collections: {
@@ -56,9 +54,9 @@ const mongoStore = {
     }
 }
 
-//const mongoUrl = process.env.MONGOURL;
-const mongoUrl = "mongodb+srv://fran2109:Fran-2109@cluster0.9ghdw.mongodb.net/ecommerce?retryWrites=true&w=majority"
-//const mongoOptions = JSON.parse(process.env.MONGOOPTIONS);
-const mongoOptions = { useNewUrlParser: true, useUnifiedTopology: true }
+const mongoUrl = process.env.MONGOURL;
+//const mongoUrl = "mongodb+srv://fran2109:Fran-2109@cluster0.9ghdw.mongodb.net/ecommerce?retryWrites=true&w=majority"
+const mongoOptions = JSON.parse(process.env.MONGOOPTIONS);
+//const mongoOptions = { useNewUrlParser: true, useUnifiedTopology: true }
 
 export { mongooseConfig, mongoStore, mongoUrl, mongoOptions };

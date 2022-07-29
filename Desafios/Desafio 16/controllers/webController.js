@@ -20,6 +20,9 @@ const webControllers = {
     info: (req, res) => {
         res.sendFile('info.html', { root: './public/views' })
     },
+    infoZip: (req, res) => {
+        res.sendFile('infoZip.html', { root: './public/views' })
+    },
     random: (req, res) => {
         res.sendFile('random.html', { root: './public/views' })
     }

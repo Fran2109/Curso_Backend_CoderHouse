@@ -1,0 +1,7 @@
+[2022-07-29T15:05:23.095] [INFO] default - GET /
+[2022-07-29T15:05:24.677] [INFO] default - GET /info
+[2022-07-29T15:09:07.807] [INFO] default - GET /login
+[2022-07-29T15:09:11.663] [INFO] default - GET /
+[2022-07-29T15:09:11.968] [INFO] default - GET /login
+[2022-07-29T15:09:14.143] [INFO] default - GET /infoZip
+[2022-07-29T15:09:14.327] [INFO] default - GET /getInfoZip

@@ -14,6 +14,9 @@ import apiRouter from './routers/apiRouter.js';
 import { port } from './parameters/parameters.js';
 // Server
 import initializeServer from './server/initializeServer.js';
+// Logs 
+import { logWarning } from './middlewares/logsMiddlewares.js';
+import { log } from 'util';
 
 // Consts
 const app = express()
@@ -31,6 +34,10 @@ app.use(passportSession)
 // Routers
 app.use('/', webRouter)
 app.use('/api', apiRouter)
+
+app.all('*', logWarning, (req, res) => {
+    res.status(404).json( { error : 404, descripcion: `ruta '${req.url}' método '${req.method}' no implementada` } )
+});
 
 io.on('connection', socket => socketController(socket, io))
 
