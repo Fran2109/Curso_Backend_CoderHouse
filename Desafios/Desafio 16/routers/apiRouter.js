@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import apiControllers from '../controllers/apiControllers.js';
 import authenticationController from '../controllers/authenticationController.js';
-import { auth } from '../middlewares/middlewares.js';
+import { auth, debug } from '../middlewares/middlewares.js';
 import compression from 'compression'; 
 import { logInfo } from '../middlewares/logsMiddlewares.js';
 
@@ -28,7 +28,9 @@ router.post('/logout', logInfo, logout)
 router.get('/login', logInfo, getName);
 router.get('/productos-test', auth, logInfo, productosTest)
 router.get('/getInfo', logInfo, getInfo);
+router.get('/getInfo-debug', logInfo, debug, getInfo);
 router.get('/getInfoZip', compression(), logInfo, getInfo);
 router.get('/randoms/:cant?', logInfo, getNumbers);
+router.get('/randoms-debug/:cant?', logInfo, debug, getNumbers);
 
 export default router

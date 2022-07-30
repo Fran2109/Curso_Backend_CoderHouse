@@ -6,4 +6,9 @@ const auth = (req, res, next) => {
     }
 }
 
-export { auth };
+const debug = (req, res, next) => {
+    req.debug = true;
+    next();
+}
+
+export { auth, debug };
