@@ -72,6 +72,6 @@ artillery quick -c 20 -n 50 "http://localhost:8080/api/randoms/1000" > artillery
 artillery quick -c 20 -n 50 "http://localhost:8080/api/randoms-debug/1000" > artillery_slow_randoms.txt
 ```
 ## Conclusion
-Todos los resultados del perfilamiento estan en la carpeta profilin ordenados.
-Como conclusion saco que el console.log() consume demasiado tiempo de proceso y rutas como randoms lo alenta un monton haciendo que el artillery llegue a tardar aproximadamente 5 minutos.
+Todos los resultados del perfilamiento estan en la carpeta profilin ordenados.<br>
+Como conclusion saco que el console.log() consume demasiado tiempo de proceso y rutas como randoms lo alenta un monton haciendo que el artillery llegue a tardar aproximadamente 5 minutos.<br>
 Saludos Francisco
