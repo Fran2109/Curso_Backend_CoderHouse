@@ -14,7 +14,7 @@ switch (config.persistence) {
         const { default : productDaoFirebase } = await import('./product/productDaoFirebase.js');
         productDao = new productDaoFirebase(config.firebase.tokenUrl, config.firebase.products);
         const { default : cartDaoFirebase } = await import('./cart/cartDaoFirebase.js');
-        //cartDao = new cartDaoFirebase(config.firebase.tokenUrl);
+        cartDao = new cartDaoFirebase(config.firebase.tokenUrl, config.firebase.carts);
         break
     case 'knex':
         const { default : productDaoKnex } = await import('./product/productDaoKnex.js');
