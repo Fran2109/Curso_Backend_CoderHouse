@@ -3,6 +3,7 @@ import { Strategy } from 'passport-local';
 import bCrypt from 'bcrypt';
 import daoUsers from './../daos/daoUsers.js'
 import { usersCollection } from './../connections/mongoose.js';
+import logger from '../logs/logger.js';
 
 const users = new daoUsers(usersCollection);
 
@@ -15,8 +16,10 @@ passport.use('register', new Strategy({
         const { name, lastname, phone } = req.body;
         const user = await users.saveIfDontExists({ email, password: createHash(password), name, lastname, phone });
         if(user){
+            logger.info(`User ${user.name} ${user.lastname} registered`);
             done(null, user);
         }else{
+            logger.warn(`User with email ${email} already exists`);
             done(null, false);
         }
     } catch (error) {
@@ -31,8 +34,11 @@ passport.use('login', new Strategy({
         try{
             const user = await users.findByUsername(email);
             if(user && bCrypt.compareSync(password, user.password)){
+                logger.info(`User ${user.name} logged in`);
                 done(null, user);
             }else{
+                if(!user) logger.warn(`User with email ${email} does not exists`);
+                if(!bCrypt.compareSync(password, user.password)) logger.warn(`User with email ${email} and password ${password} does not match`);
                 done(null, false);
             }
         } catch (error) {

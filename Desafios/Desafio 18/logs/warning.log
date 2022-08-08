@@ -26,3 +26,5 @@
   syscall: 'querySrv',
   hostname: '_mongodb._tcp.cluster0.9ghdw.mongodb.net'
 }
+[2022-08-07T23:46:49.616] [WARN] dev - User with email alysfon.fritsch37@ethereal.email already exists
+[2022-08-07T23:46:53.592] [WARN] dev - User with email alysfon.fritsch37@ethereal.email already exists

@@ -99,3 +99,20 @@
 [2022-08-07T23:26:17.679] [INFO] dev - POST /users/login
 [2022-08-07T23:26:21.586] [INFO] dev - POST /users/login
 [2022-08-07T23:26:24.871] [INFO] dev - POST /users/login
+[2022-08-07T23:33:47.293] [INFO] dev - POST /users/register
+[2022-08-07T23:34:53.873] [INFO] dev - POST /users/register
+[2022-08-07T23:35:23.875] [INFO] dev - POST /users/register
+[2022-08-07T23:36:55.645] [INFO] dev - POST /users/register
+[2022-08-07T23:40:03.931] [INFO] dev - POST /users/register
+[2022-08-07T23:41:08.523] [INFO] dev - POST /users/register
+[2022-08-07T23:41:23.328] [INFO] dev - POST /users/register
+[2022-08-07T23:42:19.022] [INFO] dev - POST /users/register
+[2022-08-07T23:43:30.584] [INFO] dev - GET /users/register
+[2022-08-07T23:43:37.754] [INFO] dev - GET /users/register
+[2022-08-07T23:46:32.746] [INFO] dev - POST /users/register
+[2022-08-07T23:46:49.306] [INFO] dev - POST /users/register
+[2022-08-07T23:46:49.616] [WARN] dev - User with email alysfon.fritsch37@ethereal.email already exists
+[2022-08-07T23:46:53.491] [INFO] dev - POST /users/register
+[2022-08-07T23:46:53.592] [WARN] dev - User with email alysfon.fritsch37@ethereal.email already exists
+[2022-08-07T23:48:25.215] [INFO] dev - POST /users/login
+[2022-08-07T23:49:04.465] [INFO] dev - POST /users/login
