@@ -2,6 +2,7 @@ import { dev } from './../args/args.js';
 import path from 'path';
 import dotenv from 'dotenv';
 import MongoStore from 'connect-mongo';
+import mongoose from "mongoose"
 
 if(dev){
     const __dirname = process.cwd();
@@ -36,8 +37,38 @@ export const mongooseConfig = {
                 password: { type: String, required: true },
                 name: { type: String, required: true },
                 lastname: { type: String, required: true },
-                phone: { type: String, required: true }
+                address: { type: String, required: true },
+                age: { type: Number, required: true },
+                phone: { type: String, required: true },
+                image: { type: String },
+                avatar: { type: String }
+            }
+        },
+        products: {
+            name: "products",
+            schema: {
+                name: { type: String, require: true },
+                price: { type: Number, require: true },
+                image: { type: String, require: true },
+                description: { type: String, require: true },
+                stock: { type: Number, require: true }
+            }
+        },
+        carts: {
+            name: "carts",
+            schema: {
+                userId: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+                products: {
+                    type: [{
+                            productId: { type: mongoose.Schema.Types.ObjectId, ref: "products" },
+                            quantity: { type: Number }
+                    }],
+                    default: [],
+                }
             }
         }
     }
 }
+
+
+export const adminMail = process.env.ADMINMAIL;

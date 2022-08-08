@@ -8,7 +8,7 @@ import sessionHandler from './session/session.js';
 // Passport
 import { passportInitialize, passportSession } from './passport/passport.js';
 // Routers
-//import productsRouter from './routers/productsRouter.js';
+import productsRouter from './routers/productsRouter.js';
 //import cartsRouter from './routers/cartsRouter.js';
 import usersRouter from './routers/usersRouter.js';
 
@@ -23,7 +23,7 @@ app.use(passportInitialize);
 app.use(passportSession);
 
 // Routers
-//app.use('/products', productsRouter);
+app.use('/products', productsRouter);
 //app.use('/carts', cartsRouter);
 app.use('/users', usersRouter);
 

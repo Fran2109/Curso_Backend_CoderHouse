@@ -7,8 +7,8 @@ class containerMongoose {
     async save(elem){
         try{
             const added = new this.collection(elem);
-            await added.save();
-            return added;
+            const saved = await added.save();
+            return saved;
         } catch(err){
             logger.error(`Error al Insertar: ${err.message}`);
             throw new Error(`Error al Insertar: ${err.message}`)

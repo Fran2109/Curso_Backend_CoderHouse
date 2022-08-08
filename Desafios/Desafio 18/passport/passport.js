@@ -1,26 +1,32 @@
 import passport from 'passport';
 import { Strategy } from 'passport-local';
 import bCrypt from 'bcrypt';
-import daoUsers from './../daos/daoUsers.js'
-import { usersCollection } from './../connections/mongoose.js';
 import logger from '../logs/logger.js';
-
-const users = new daoUsers(usersCollection);
-
+import { users, carts } from './../daos/index.js';
 passport.use('register', new Strategy({
     usernameField: 'email',
     passwordField: 'password',
     passReqToCallback: true
 }, async (req, email, password, done) => {
     try{
-        const { name, lastname, phone } = req.body;
-        const user = await users.saveIfDontExists({ email, password: createHash(password), name, lastname, phone });
+        const { file } = req;
+        const { name, lastname, address, age, phone } = req.body;
+        const image = file ? `uploads/${file.filename}` : null;
+        const avatar = req.body.avatar ? req.body.avatar : null;
+        
+        if(!image && !avatar){
+            logger.warn('No image or avatar was provided');
+            return done(null, false, { message: 'You must upload an image' });
+        }
+
+        const user = await users.saveIfDontExists({ email, password: createHash(password), name, lastname, phone, address, age, image, avatar });
         if(user){
             logger.info(`User ${user.name} ${user.lastname} registered`);
+            await carts.save({ userId: user._id });
             done(null, user);
         }else{
             logger.warn(`User with email ${email} already exists`);
-            done(null, false);
+            done(null, false, { message: 'User already exists' });
         }
     } catch (error) {
         done(error);
@@ -38,8 +44,8 @@ passport.use('login', new Strategy({
                 done(null, user);
             }else{
                 if(!user) logger.warn(`User with email ${email} does not exists`);
-                if(!bCrypt.compareSync(password, user.password)) logger.warn(`User with email ${email} and password ${password} does not match`);
-                done(null, false);
+                if(user?.password && !bCrypt.compareSync(password, user.password)) logger.warn(`User with email ${email} and password ${password} does not match`);
+                done(null, false, { message: 'Incorrect email or password' });
             }
         } catch (error) {
             done(error);
@@ -53,7 +59,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser(async (id, done) => {
     try{
-        const user = users.getById(id)
+        const user = await users.getById(id)
         done(null, user)
     } catch(error) {
         done(error)

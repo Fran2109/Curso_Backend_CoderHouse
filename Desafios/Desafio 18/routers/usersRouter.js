@@ -1,11 +1,13 @@
 import { Router } from 'express';
 import { logInfo } from '../middlewares/logMiddlewares.js';
-import { register, login } from '../controllers/userController.js';
-import passport from 'passport';
+import { postRegister, postLogin, getLogout, getInfo } from '../controllers/userController.js';
+import multer from './../multer/multer.js';
 
 const router = new Router();
 
-router.post('/register', logInfo, passport.authenticate('register'), register);
-router.post('/login', logInfo, passport.authenticate('login'), login);
+router.get('/info', logInfo, getInfo)
+router.post('/register', logInfo, multer.single('image'), postRegister);
+router.post('/login', logInfo, postLogin);
+router.get('/logout', logInfo, getLogout);
 
 export default router;
