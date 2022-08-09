@@ -5,3 +5,14 @@
 [2022-08-08T21:06:13.967] [WARN] dev - User with email alyson.fritsch37@ethereal.email does not exists
 [2022-08-08T21:24:46.925] [WARN] dev - User with email alyson.fritsch37@ethereal.email does not exists
 [2022-08-09T10:59:30.706] [WARN] dev - User with email admin@admin.com already exists
+[2022-08-09T12:53:45.739] [WARN] dev - User with email alyson2.fritsch37@ethereal.email already exists
+[2022-08-09T12:57:37.971] [WARN] dev - User with email alyson2.fritsch37@ethereal.email already exists
+[2022-08-09T12:57:40.411] [WARN] dev - User with email alyson.fritsch37@ethereal.email already exists
+[2022-08-09T12:59:54.255] [ERROR] dev - Error al Enviar: path is not defined
+[2022-08-09T13:00:11.191] [ERROR] dev - Error al Enviar: ENOENT: no such file or directory, open 'C:\Users\Francisco Filosi\Desktop\Curso_Backend_CoderHouse\Desafios\handlebars\register.handlebars'
+[2022-08-09T13:01:37.892] [ERROR] dev - Error al Enviar: Parse error on line 10:
+...</p>            {{log(user)}}       
+----------------------^
+Expecting 'ID', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', got 'INVALID'
+[2022-08-09T13:10:45.373] [WARN] dev - User with email alyson2.fritsch37@ethereal.email already exists
+[2022-08-09T13:10:47.465] [WARN] dev - User with email alyson.fritsch37@ethereal.email already exists

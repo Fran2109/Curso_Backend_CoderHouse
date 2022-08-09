@@ -2,7 +2,9 @@ import passport from 'passport';
 import { Strategy } from 'passport-local';
 import bCrypt from 'bcrypt';
 import logger from '../logs/logger.js';
-import { users, carts } from './../daos/index.js';
+import { users, carts, mail } from './../daos/index.js';
+import { mailReceiver } from './../configs/config.js';
+
 passport.use('register', new Strategy({
     usernameField: 'email',
     passwordField: 'password',
@@ -22,7 +24,8 @@ passport.use('register', new Strategy({
         const user = await users.saveIfDontExists({ email, password: createHash(password), name, lastname, phone, address, age, image, avatar });
         if(user){
             logger.info(`User ${user.name} ${user.lastname} registered`);
-            await carts.save({ userId: user._id });
+            carts.save({ userId: user._id });
+            mail.sendMailInRegister(user, mailReceiver);
             done(null, user);
         }else{
             logger.warn(`User with email ${email} already exists`);

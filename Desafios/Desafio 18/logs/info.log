@@ -45,3 +45,95 @@
 [2022-08-09T11:50:33.961] [INFO] dev - User admin logged in
 [2022-08-09T11:50:36.489] [INFO] dev - DELETE /products
 [2022-08-09T11:51:03.405] [INFO] dev - DELETE /products
+[2022-08-09T12:26:45.353] [INFO] dev - POST /users/register
+[2022-08-09T12:26:45.537] [INFO] dev - User alyson fritsch registered
+[2022-08-09T12:42:25.316] [INFO] dev - POST /users/register
+[2022-08-09T12:42:25.499] [INFO] dev - User alyson fritsch registered
+[2022-08-09T12:45:24.364] [INFO] dev - POST /users/register
+[2022-08-09T12:45:24.607] [INFO] dev - User alyson fritsch registered
+[2022-08-09T12:46:09.972] [INFO] dev - POST /users/register
+[2022-08-09T12:46:10.191] [INFO] dev - User alyson fritsch registered
+[2022-08-09T12:47:02.673] [INFO] dev - POST /users/register
+[2022-08-09T12:47:02.881] [INFO] dev - User alyson fritsch registered
+[2022-08-09T12:48:45.276] [INFO] dev - POST /users/register
+[2022-08-09T12:48:45.488] [INFO] dev - User alyson fritsch registered
+[2022-08-09T12:53:41.263] [INFO] dev - POST /users/register
+[2022-08-09T12:53:41.465] [INFO] dev - User alyson fritsch registered
+[2022-08-09T12:53:45.623] [INFO] dev - POST /users/register
+[2022-08-09T12:53:45.739] [WARN] dev - User with email alyson2.fritsch37@ethereal.email already exists
+[2022-08-09T12:54:33.510] [INFO] dev - POST /users/register
+[2022-08-09T12:54:33.687] [INFO] dev - User alyson fritsch registered
+[2022-08-09T12:56:55.052] [INFO] dev - POST /users/register
+[2022-08-09T12:56:55.250] [INFO] dev - User alyson fritsch registered
+[2022-08-09T12:57:01.915] [INFO] dev - POST /users/register
+[2022-08-09T12:57:02.061] [INFO] dev - User alyson fritsch registered
+[2022-08-09T12:57:37.858] [INFO] dev - POST /users/register
+[2022-08-09T12:57:37.971] [WARN] dev - User with email alyson2.fritsch37@ethereal.email already exists
+[2022-08-09T12:57:40.297] [INFO] dev - POST /users/register
+[2022-08-09T12:57:40.411] [WARN] dev - User with email alyson.fritsch37@ethereal.email already exists
+[2022-08-09T12:57:42.243] [INFO] dev - POST /users/register
+[2022-08-09T12:57:42.428] [INFO] dev - User admin admin registered
+[2022-08-09T12:59:53.977] [INFO] dev - POST /users/register
+[2022-08-09T12:59:54.189] [INFO] dev - User admin admin registered
+[2022-08-09T12:59:54.255] [ERROR] dev - Error al Enviar: path is not defined
+[2022-08-09T13:00:10.951] [INFO] dev - POST /users/register
+[2022-08-09T13:00:11.142] [INFO] dev - User alyson fritsch registered
+[2022-08-09T13:00:11.191] [ERROR] dev - Error al Enviar: ENOENT: no such file or directory, open 'C:\Users\Francisco Filosi\Desktop\Curso_Backend_CoderHouse\Desafios\handlebars\register.handlebars'
+[2022-08-09T13:00:27.390] [INFO] dev - POST /users/register
+[2022-08-09T13:00:27.571] [INFO] dev - User alyson fritsch registered
+[2022-08-09T13:01:37.614] [INFO] dev - POST /users/register
+[2022-08-09T13:01:37.820] [INFO] dev - User alyson fritsch registered
+[2022-08-09T13:01:37.892] [ERROR] dev - Error al Enviar: Parse error on line 10:
+...</p>            {{log(user)}}       
+----------------------^
+Expecting 'ID', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', got 'INVALID'
+[2022-08-09T13:09:00.102] [INFO] dev - POST /users/register
+[2022-08-09T13:09:00.296] [INFO] dev - User alyson fritsch registered
+[2022-08-09T13:10:45.260] [INFO] dev - POST /users/register
+[2022-08-09T13:10:45.373] [WARN] dev - User with email alyson2.fritsch37@ethereal.email already exists
+[2022-08-09T13:10:47.351] [INFO] dev - POST /users/register
+[2022-08-09T13:10:47.465] [WARN] dev - User with email alyson.fritsch37@ethereal.email already exists
+[2022-08-09T13:10:50.966] [INFO] dev - POST /users/register
+[2022-08-09T13:10:51.114] [INFO] dev - User admin admin registered
+[2022-08-09T13:15:31.561] [INFO] dev - POST /users/register
+[2022-08-09T13:15:31.778] [INFO] dev - User admin admin registered
+[2022-08-09T13:16:17.064] [INFO] dev - POST /users/register
+[2022-08-09T13:16:17.325] [INFO] dev - User admin admin registered
+[2022-08-09T13:18:22.192] [INFO] dev - POST /users/register
+[2022-08-09T13:18:22.394] [INFO] dev - User alyson fritsch registered
+[2022-08-09T13:21:35.651] [INFO] dev - POST /users/register
+[2022-08-09T13:21:35.862] [INFO] dev - User alyson fritsch registered
+[2022-08-09T13:21:37.270] [INFO] dev - POST /users/register
+[2022-08-09T13:21:37.432] [INFO] dev - User alyson fritsch registered
+[2022-08-09T13:27:10.850] [INFO] dev - POST /users/register
+[2022-08-09T13:27:11.027] [INFO] dev - User admin admin registered
+[2022-08-09T13:27:12.284] [INFO] dev - POST /users/register
+[2022-08-09T13:27:12.439] [INFO] dev - User alyson fritsch registered
+[2022-08-09T13:27:13.634] [INFO] dev - POST /users/register
+[2022-08-09T13:27:13.800] [INFO] dev - User alyson fritsch registered
+[2022-08-09T14:37:20.998] [INFO] dev - POST /users/register
+[2022-08-09T14:37:21.203] [INFO] dev - User alyson fritsch registered
+[2022-08-09T14:38:01.044] [INFO] dev - POST /users/register
+[2022-08-09T14:38:01.272] [INFO] dev - User alyson fritsch registered
+[2022-08-09T14:40:37.400] [INFO] dev - POST /users/register
+[2022-08-09T14:40:37.606] [INFO] dev - User alyson fritsch registered
+[2022-08-09T14:45:41.257] [INFO] dev - POST /users/register
+[2022-08-09T14:45:41.493] [INFO] dev - User alyson fritsch registered
+[2022-08-09T14:46:42.230] [INFO] dev - POST /users/register
+[2022-08-09T14:46:42.490] [INFO] dev - User admin admin registered
+[2022-08-09T14:48:18.023] [INFO] dev - POST /users/register
+[2022-08-09T14:48:18.242] [INFO] dev - User alyson fritsch registered
+[2022-08-09T14:48:20.102] [INFO] dev - POST /users/register
+[2022-08-09T14:48:20.240] [INFO] dev - User admin admin registered
+[2022-08-09T14:52:07.107] [INFO] dev - POST /users/register
+[2022-08-09T14:52:07.505] [INFO] dev - User alyson fritsch registered
+[2022-08-09T14:56:00.512] [INFO] dev - POST /users/register
+[2022-08-09T14:56:00.719] [INFO] dev - User admin admin registered
+[2022-08-09T14:56:02.087] [INFO] dev - POST /users/register
+[2022-08-09T14:56:02.266] [INFO] dev - User alyson fritsch registered
+[2022-08-09T15:32:32.915] [INFO] dev - POST /users/register
+[2022-08-09T15:32:35.213] [INFO] dev - POST /users/register
+[2022-08-09T15:32:37.316] [INFO] dev - POST /users/register
+[2022-08-09T15:32:37.862] [INFO] dev - User admin admin registered
+[2022-08-09T15:32:37.924] [INFO] dev - User alyson fritsch registered
+[2022-08-09T15:32:37.959] [INFO] dev - User alyson fritsch registered

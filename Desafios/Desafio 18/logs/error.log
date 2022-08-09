@@ -1,3 +1,9 @@
 [2022-08-08T20:46:23.165] [ERROR] dev - Error al Leer: Cast to ObjectId failed for value "62f144af308d369cd7c8643" (type string) at path "_id" for model "products"
 [2022-08-08T20:47:09.581] [ERROR] dev - Error al Leer: Cast to ObjectId failed for value "62f144af308d369cd7c8643" (type string) at path "_id" for model "products"
 [2022-08-08T20:47:14.122] [ERROR] dev - Error al Leer: Cast to ObjectId failed for value "62f144af308d369cd7c8643" (type string) at path "_id" for model "products"
+[2022-08-09T12:59:54.255] [ERROR] dev - Error al Enviar: path is not defined
+[2022-08-09T13:00:11.191] [ERROR] dev - Error al Enviar: ENOENT: no such file or directory, open 'C:\Users\Francisco Filosi\Desktop\Curso_Backend_CoderHouse\Desafios\handlebars\register.handlebars'
+[2022-08-09T13:01:37.892] [ERROR] dev - Error al Enviar: Parse error on line 10:
+...</p>            {{log(user)}}       
+----------------------^
+Expecting 'ID', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', got 'INVALID'

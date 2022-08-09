@@ -12,8 +12,12 @@ if(dev){
 }
 
 export const mongoUrl = process.env.MONGOURL;
-
 export const mongoOptions = JSON.parse(process.env.MONGOOPTIONS);
+export const adminMail = process.env.ADMINMAIL;
+export const mailSender = process.env.MAILSENDER;
+export const mailSenderPass = process.env.MAILSENDERPASS;
+export const mailReceiver = process.env.MAILRECEIVER;
+export const ownWeb = process.env.OWNWEB;
 
 export const mongoStore = {
     store: MongoStore.create({
@@ -70,5 +74,3 @@ export const mongooseConfig = {
     }
 }
 
-
-export const adminMail = process.env.ADMINMAIL;
