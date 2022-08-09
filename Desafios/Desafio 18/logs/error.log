@@ -1,0 +1,3 @@
+[2022-08-08T20:46:23.165] [ERROR] dev - Error al Leer: Cast to ObjectId failed for value "62f144af308d369cd7c8643" (type string) at path "_id" for model "products"
+[2022-08-08T20:47:09.581] [ERROR] dev - Error al Leer: Cast to ObjectId failed for value "62f144af308d369cd7c8643" (type string) at path "_id" for model "products"
+[2022-08-08T20:47:14.122] [ERROR] dev - Error al Leer: Cast to ObjectId failed for value "62f144af308d369cd7c8643" (type string) at path "_id" for model "products"

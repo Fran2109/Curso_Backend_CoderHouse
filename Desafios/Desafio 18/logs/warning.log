@@ -1,0 +1,7 @@
+[2022-08-08T20:46:06.854] [WARN] dev - User with email admin@admin.com does not exists
+[2022-08-08T20:46:23.165] [ERROR] dev - Error al Leer: Cast to ObjectId failed for value "62f144af308d369cd7c8643" (type string) at path "_id" for model "products"
+[2022-08-08T20:47:09.581] [ERROR] dev - Error al Leer: Cast to ObjectId failed for value "62f144af308d369cd7c8643" (type string) at path "_id" for model "products"
+[2022-08-08T20:47:14.122] [ERROR] dev - Error al Leer: Cast to ObjectId failed for value "62f144af308d369cd7c8643" (type string) at path "_id" for model "products"
+[2022-08-08T21:06:13.967] [WARN] dev - User with email alyson.fritsch37@ethereal.email does not exists
+[2022-08-08T21:24:46.925] [WARN] dev - User with email alyson.fritsch37@ethereal.email does not exists
+[2022-08-09T10:59:30.706] [WARN] dev - User with email admin@admin.com already exists

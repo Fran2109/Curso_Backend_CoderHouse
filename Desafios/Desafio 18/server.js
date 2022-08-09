@@ -9,7 +9,7 @@ import sessionHandler from './session/session.js';
 import { passportInitialize, passportSession } from './passport/passport.js';
 // Routers
 import productsRouter from './routers/productsRouter.js';
-//import cartsRouter from './routers/cartsRouter.js';
+import cartsRouter from './routers/cartsRouter.js';
 import usersRouter from './routers/usersRouter.js';
 
 const app = express();
@@ -24,7 +24,7 @@ app.use(passportSession);
 
 // Routers
 app.use('/products', productsRouter);
-//app.use('/carts', cartsRouter);
+app.use('/carts', cartsRouter);
 app.use('/users', usersRouter);
 
 initializeServer(app, port);

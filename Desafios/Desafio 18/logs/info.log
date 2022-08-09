@@ -1,0 +1,46 @@
+[2022-08-08T20:46:06.802] [INFO] dev - POST /users/login
+[2022-08-08T20:46:06.854] [WARN] dev - User with email admin@admin.com does not exists
+[2022-08-08T20:46:13.402] [INFO] dev - POST /users/register
+[2022-08-08T20:46:13.585] [INFO] dev - User admin admin registered
+[2022-08-08T20:46:23.165] [ERROR] dev - Error al Leer: Cast to ObjectId failed for value "62f144af308d369cd7c8643" (type string) at path "_id" for model "products"
+[2022-08-08T20:47:09.581] [ERROR] dev - Error al Leer: Cast to ObjectId failed for value "62f144af308d369cd7c8643" (type string) at path "_id" for model "products"
+[2022-08-08T20:47:14.122] [ERROR] dev - Error al Leer: Cast to ObjectId failed for value "62f144af308d369cd7c8643" (type string) at path "_id" for model "products"
+[2022-08-08T20:55:48.750] [INFO] dev - POST /users/register
+[2022-08-08T20:55:49.183] [INFO] dev - User admin admin registered
+[2022-08-08T21:06:13.924] [INFO] dev - POST /users/login
+[2022-08-08T21:06:13.967] [WARN] dev - User with email alyson.fritsch37@ethereal.email does not exists
+[2022-08-08T21:06:17.984] [INFO] dev - POST /users/login
+[2022-08-08T21:06:18.098] [INFO] dev - User admin logged in
+[2022-08-08T21:24:46.870] [INFO] dev - POST /users/login
+[2022-08-08T21:24:46.925] [WARN] dev - User with email alyson.fritsch37@ethereal.email does not exists
+[2022-08-08T21:24:50.894] [INFO] dev - POST /users/login
+[2022-08-08T21:24:51.010] [INFO] dev - User admin logged in
+[2022-08-08T21:35:14.760] [INFO] dev - POST /users/login
+[2022-08-08T21:35:14.866] [INFO] dev - User admin logged in
+[2022-08-09T10:59:30.585] [INFO] dev - POST /users/register
+[2022-08-09T10:59:30.706] [WARN] dev - User with email admin@admin.com already exists
+[2022-08-09T10:59:32.718] [INFO] dev - POST /users/register
+[2022-08-09T10:59:32.885] [INFO] dev - User alyson fritsch registered
+[2022-08-09T10:59:34.994] [INFO] dev - POST /users/register
+[2022-08-09T10:59:35.138] [INFO] dev - User alyson fritsch registered
+[2022-08-09T10:59:37.505] [INFO] dev - POST /users/login
+[2022-08-09T10:59:37.602] [INFO] dev - User alyson logged in
+[2022-08-09T10:59:44.788] [INFO] dev - POST /users/login
+[2022-08-09T10:59:44.903] [INFO] dev - User admin logged in
+[2022-08-09T11:09:53.820] [INFO] dev - POST /users/login
+[2022-08-09T11:09:53.941] [INFO] dev - User admin logged in
+[2022-08-09T11:20:12.701] [INFO] dev - POST /users/login
+[2022-08-09T11:20:12.817] [INFO] dev - User admin logged in
+[2022-08-09T11:29:57.949] [INFO] dev - POST /users/login
+[2022-08-09T11:29:58.067] [INFO] dev - User admin logged in
+[2022-08-09T11:40:06.252] [INFO] dev - POST /users/login
+[2022-08-09T11:40:06.371] [INFO] dev - User admin logged in
+[2022-08-09T11:41:16.162] [INFO] dev - GET /carts
+[2022-08-09T11:41:37.634] [INFO] dev - DELETE /carts
+[2022-08-09T11:47:12.931] [INFO] dev - PUT /products/62f144a9308d3629cd7c863d
+[2022-08-09T11:48:05.788] [INFO] dev - DELETE /products/62f144a9308d3629cd7c863d
+[2022-08-09T11:50:26.269] [INFO] dev - POST /users/login
+[2022-08-09T11:50:26.395] [INFO] dev - User alyson logged in
+[2022-08-09T11:50:33.847] [INFO] dev - POST /users/login
+[2022-08-09T11:50:33.961] [INFO] dev - User admin logged in
+[2022-08-09T11:50:36.489] [INFO] dev - DELETE /products

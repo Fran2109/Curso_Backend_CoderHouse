@@ -33,9 +33,9 @@ class containerMongoose {
         }
         
     }
-    async updateById(id, elem){
+    async updateById(elem){
         try{
-            const updated = await this.collection.findByIdAndUpdate(id, elem, { new: true });
+            const updated = await this.collection.findByIdAndUpdate(elem._id, elem, { new: true });
             return updated;
         }
         catch(err) {
