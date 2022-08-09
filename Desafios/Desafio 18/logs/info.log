@@ -137,3 +137,9 @@ Expecting 'ID', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', got 
 [2022-08-09T15:32:37.862] [INFO] dev - User admin admin registered
 [2022-08-09T15:32:37.924] [INFO] dev - User alyson fritsch registered
 [2022-08-09T15:32:37.959] [INFO] dev - User alyson fritsch registered
+[2022-08-09T15:35:02.587] [INFO] dev - POST /users/register
+[2022-08-09T15:35:02.809] [INFO] dev - User admin admin registered
+[2022-08-09T15:35:04.295] [INFO] dev - POST /users/register
+[2022-08-09T15:35:04.512] [INFO] dev - User alyson fritsch registered
+[2022-08-09T15:35:05.904] [INFO] dev - POST /users/register
+[2022-08-09T15:35:06.112] [INFO] dev - User alyson fritsch registered
