@@ -18,6 +18,10 @@ export const mailSender = process.env.MAILSENDER;
 export const mailSenderPass = process.env.MAILSENDERPASS;
 export const mailReceiver = process.env.MAILRECEIVER;
 export const ownWeb = process.env.OWNWEB;
+export const accountSid = process.env.ACCOUNTSID;
+export const authToken = process.env.AUTHTOKEN;
+export const twilioNumber = process.env.TWILIONUMBER;
+export const whatsappReceiver = process.env.WHATSAPPRECEIVER;
 
 export const mongoStore = {
     store: MongoStore.create({
