@@ -44,3 +44,4 @@
 [2022-08-09T11:50:33.847] [INFO] dev - POST /users/login
 [2022-08-09T11:50:33.961] [INFO] dev - User admin logged in
 [2022-08-09T11:50:36.489] [INFO] dev - DELETE /products
+[2022-08-09T11:51:03.405] [INFO] dev - DELETE /products
