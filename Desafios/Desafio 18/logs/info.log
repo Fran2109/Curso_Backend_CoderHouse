@@ -43,3 +43,8 @@
 [2022-08-10T13:30:23.245] [ERROR] dev - Error al Enviar: Assignment to constant variable.
 [2022-08-10T13:34:04.870] [INFO] dev - POST /users/login
 [2022-08-10T13:34:04.992] [INFO] dev - User alyson logged in
+[2022-08-10T14:05:49.724] [INFO] dev - POST /users/login
+[2022-08-10T14:05:49.853] [INFO] dev - User alyson logged in
+[2022-08-10T14:05:53.356] [INFO] dev - GET /products
+[2022-08-10T14:09:29.129] [INFO] dev - POST /users/login
+[2022-08-10T14:09:29.249] [INFO] dev - User alyson logged in

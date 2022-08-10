@@ -50,6 +50,7 @@ export const acceptOrder = async (req, res, next) => {
         if(!order) { throw new Error('Order not found'); }
         mail.sendMailInAccept(order.userId, order.products, order.total, mailReceiver);
         message.sendWhatsappAcceptingOrder(whatsappReceiver, twilioNumber, order);
+        message.sendWhatsapp(order.userId.phone, twilioNumber, "Order accepted");
         res.status(200).send(order);
     } catch (error) {
         next(error);

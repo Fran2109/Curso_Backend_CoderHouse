@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js --d --f"
+    "dev": "nodemon server.js --d --f",
+    "cluster": "node server.js --d"
   },
   "keywords": [],
   "author": "",
