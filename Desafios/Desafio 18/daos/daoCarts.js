@@ -24,6 +24,16 @@ class daoCarts extends container{
         });
         return products;
     }
+    async deleteProductsFromCart(userId) {
+        try {
+            const cart = await this.collection.findOne({ userId });
+            if(!cart) { throw new Error('Cart not found'); }
+            await this.collection.updateOne({ userId }, { $set: { products: [] } });
+            return cart;
+        } catch(err) {
+            throw err;
+        }
+    }
 }
 
 export default daoCarts;

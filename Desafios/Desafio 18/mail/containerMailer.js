@@ -50,6 +50,33 @@ class mailer {
             throw new Error(`Error al Enviar: ${err.message}`)
         }
     }
+    async sendMailInAccept(user, products, total, mail) {
+        try {
+            const html = generateHtml('./handlebars/accept.handlebars', {
+                title: `Nuevo pedido de ${user.name} ${user.lastname}`,
+                name: user.name,
+                lastname: user.lastname,
+                email: user.email,
+                age: user.age,
+                phone: user.phone,
+                address: user.address,
+                image: user.image? ownWeb + user.image : user.avatar,
+                products: products,
+                total: total
+            })
+    
+            const mailOptions = {
+                from: "Servidor NodeJS",
+                to: mail,
+                subject: "Orden Aceptada",
+                html: html
+            }
+            return this.sendMail(mailOptions);
+        } catch (err) {
+            logger.error(`Error al Enviar: ${err.message}`);
+            throw new Error(`Error al Enviar: ${err.message}`)
+        }
+    }
 }
 
 const generateHtml = (templatePath, data) => {

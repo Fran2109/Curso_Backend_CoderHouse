@@ -74,6 +74,21 @@ export const mongooseConfig = {
                     default: [],
                 }
             }
+        },
+        orders: {
+            name: "orders",
+            schema: {
+                userId: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+                products: {
+                    type: [{
+                            productId: { type: mongoose.Schema.Types.ObjectId, ref: "products" },
+                            quantity: { type: Number }
+                    }],
+                    default: []
+                },
+                total: { type: Number, default: 0 },
+                accepted: { type: Boolean, default: false }
+            }
         }
     }
 }

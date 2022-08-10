@@ -1,145 +1,45 @@
-[2022-08-08T20:46:06.802] [INFO] dev - POST /users/login
-[2022-08-08T20:46:06.854] [WARN] dev - User with email admin@admin.com does not exists
-[2022-08-08T20:46:13.402] [INFO] dev - POST /users/register
-[2022-08-08T20:46:13.585] [INFO] dev - User admin admin registered
-[2022-08-08T20:46:23.165] [ERROR] dev - Error al Leer: Cast to ObjectId failed for value "62f144af308d369cd7c8643" (type string) at path "_id" for model "products"
-[2022-08-08T20:47:09.581] [ERROR] dev - Error al Leer: Cast to ObjectId failed for value "62f144af308d369cd7c8643" (type string) at path "_id" for model "products"
-[2022-08-08T20:47:14.122] [ERROR] dev - Error al Leer: Cast to ObjectId failed for value "62f144af308d369cd7c8643" (type string) at path "_id" for model "products"
-[2022-08-08T20:55:48.750] [INFO] dev - POST /users/register
-[2022-08-08T20:55:49.183] [INFO] dev - User admin admin registered
-[2022-08-08T21:06:13.924] [INFO] dev - POST /users/login
-[2022-08-08T21:06:13.967] [WARN] dev - User with email alyson.fritsch37@ethereal.email does not exists
-[2022-08-08T21:06:17.984] [INFO] dev - POST /users/login
-[2022-08-08T21:06:18.098] [INFO] dev - User admin logged in
-[2022-08-08T21:24:46.870] [INFO] dev - POST /users/login
-[2022-08-08T21:24:46.925] [WARN] dev - User with email alyson.fritsch37@ethereal.email does not exists
-[2022-08-08T21:24:50.894] [INFO] dev - POST /users/login
-[2022-08-08T21:24:51.010] [INFO] dev - User admin logged in
-[2022-08-08T21:35:14.760] [INFO] dev - POST /users/login
-[2022-08-08T21:35:14.866] [INFO] dev - User admin logged in
-[2022-08-09T10:59:30.585] [INFO] dev - POST /users/register
-[2022-08-09T10:59:30.706] [WARN] dev - User with email admin@admin.com already exists
-[2022-08-09T10:59:32.718] [INFO] dev - POST /users/register
-[2022-08-09T10:59:32.885] [INFO] dev - User alyson fritsch registered
-[2022-08-09T10:59:34.994] [INFO] dev - POST /users/register
-[2022-08-09T10:59:35.138] [INFO] dev - User alyson fritsch registered
-[2022-08-09T10:59:37.505] [INFO] dev - POST /users/login
-[2022-08-09T10:59:37.602] [INFO] dev - User alyson logged in
-[2022-08-09T10:59:44.788] [INFO] dev - POST /users/login
-[2022-08-09T10:59:44.903] [INFO] dev - User admin logged in
-[2022-08-09T11:09:53.820] [INFO] dev - POST /users/login
-[2022-08-09T11:09:53.941] [INFO] dev - User admin logged in
-[2022-08-09T11:20:12.701] [INFO] dev - POST /users/login
-[2022-08-09T11:20:12.817] [INFO] dev - User admin logged in
-[2022-08-09T11:29:57.949] [INFO] dev - POST /users/login
-[2022-08-09T11:29:58.067] [INFO] dev - User admin logged in
-[2022-08-09T11:40:06.252] [INFO] dev - POST /users/login
-[2022-08-09T11:40:06.371] [INFO] dev - User admin logged in
-[2022-08-09T11:41:16.162] [INFO] dev - GET /carts
-[2022-08-09T11:41:37.634] [INFO] dev - DELETE /carts
-[2022-08-09T11:47:12.931] [INFO] dev - PUT /products/62f144a9308d3629cd7c863d
-[2022-08-09T11:48:05.788] [INFO] dev - DELETE /products/62f144a9308d3629cd7c863d
-[2022-08-09T11:50:26.269] [INFO] dev - POST /users/login
-[2022-08-09T11:50:26.395] [INFO] dev - User alyson logged in
-[2022-08-09T11:50:33.847] [INFO] dev - POST /users/login
-[2022-08-09T11:50:33.961] [INFO] dev - User admin logged in
-[2022-08-09T11:50:36.489] [INFO] dev - DELETE /products
-[2022-08-09T11:51:03.405] [INFO] dev - DELETE /products
-[2022-08-09T12:26:45.353] [INFO] dev - POST /users/register
-[2022-08-09T12:26:45.537] [INFO] dev - User alyson fritsch registered
-[2022-08-09T12:42:25.316] [INFO] dev - POST /users/register
-[2022-08-09T12:42:25.499] [INFO] dev - User alyson fritsch registered
-[2022-08-09T12:45:24.364] [INFO] dev - POST /users/register
-[2022-08-09T12:45:24.607] [INFO] dev - User alyson fritsch registered
-[2022-08-09T12:46:09.972] [INFO] dev - POST /users/register
-[2022-08-09T12:46:10.191] [INFO] dev - User alyson fritsch registered
-[2022-08-09T12:47:02.673] [INFO] dev - POST /users/register
-[2022-08-09T12:47:02.881] [INFO] dev - User alyson fritsch registered
-[2022-08-09T12:48:45.276] [INFO] dev - POST /users/register
-[2022-08-09T12:48:45.488] [INFO] dev - User alyson fritsch registered
-[2022-08-09T12:53:41.263] [INFO] dev - POST /users/register
-[2022-08-09T12:53:41.465] [INFO] dev - User alyson fritsch registered
-[2022-08-09T12:53:45.623] [INFO] dev - POST /users/register
-[2022-08-09T12:53:45.739] [WARN] dev - User with email alyson2.fritsch37@ethereal.email already exists
-[2022-08-09T12:54:33.510] [INFO] dev - POST /users/register
-[2022-08-09T12:54:33.687] [INFO] dev - User alyson fritsch registered
-[2022-08-09T12:56:55.052] [INFO] dev - POST /users/register
-[2022-08-09T12:56:55.250] [INFO] dev - User alyson fritsch registered
-[2022-08-09T12:57:01.915] [INFO] dev - POST /users/register
-[2022-08-09T12:57:02.061] [INFO] dev - User alyson fritsch registered
-[2022-08-09T12:57:37.858] [INFO] dev - POST /users/register
-[2022-08-09T12:57:37.971] [WARN] dev - User with email alyson2.fritsch37@ethereal.email already exists
-[2022-08-09T12:57:40.297] [INFO] dev - POST /users/register
-[2022-08-09T12:57:40.411] [WARN] dev - User with email alyson.fritsch37@ethereal.email already exists
-[2022-08-09T12:57:42.243] [INFO] dev - POST /users/register
-[2022-08-09T12:57:42.428] [INFO] dev - User admin admin registered
-[2022-08-09T12:59:53.977] [INFO] dev - POST /users/register
-[2022-08-09T12:59:54.189] [INFO] dev - User admin admin registered
-[2022-08-09T12:59:54.255] [ERROR] dev - Error al Enviar: path is not defined
-[2022-08-09T13:00:10.951] [INFO] dev - POST /users/register
-[2022-08-09T13:00:11.142] [INFO] dev - User alyson fritsch registered
-[2022-08-09T13:00:11.191] [ERROR] dev - Error al Enviar: ENOENT: no such file or directory, open 'C:\Users\Francisco Filosi\Desktop\Curso_Backend_CoderHouse\Desafios\handlebars\register.handlebars'
-[2022-08-09T13:00:27.390] [INFO] dev - POST /users/register
-[2022-08-09T13:00:27.571] [INFO] dev - User alyson fritsch registered
-[2022-08-09T13:01:37.614] [INFO] dev - POST /users/register
-[2022-08-09T13:01:37.820] [INFO] dev - User alyson fritsch registered
-[2022-08-09T13:01:37.892] [ERROR] dev - Error al Enviar: Parse error on line 10:
-...</p>            {{log(user)}}       
-----------------------^
-Expecting 'ID', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', got 'INVALID'
-[2022-08-09T13:09:00.102] [INFO] dev - POST /users/register
-[2022-08-09T13:09:00.296] [INFO] dev - User alyson fritsch registered
-[2022-08-09T13:10:45.260] [INFO] dev - POST /users/register
-[2022-08-09T13:10:45.373] [WARN] dev - User with email alyson2.fritsch37@ethereal.email already exists
-[2022-08-09T13:10:47.351] [INFO] dev - POST /users/register
-[2022-08-09T13:10:47.465] [WARN] dev - User with email alyson.fritsch37@ethereal.email already exists
-[2022-08-09T13:10:50.966] [INFO] dev - POST /users/register
-[2022-08-09T13:10:51.114] [INFO] dev - User admin admin registered
-[2022-08-09T13:15:31.561] [INFO] dev - POST /users/register
-[2022-08-09T13:15:31.778] [INFO] dev - User admin admin registered
-[2022-08-09T13:16:17.064] [INFO] dev - POST /users/register
-[2022-08-09T13:16:17.325] [INFO] dev - User admin admin registered
-[2022-08-09T13:18:22.192] [INFO] dev - POST /users/register
-[2022-08-09T13:18:22.394] [INFO] dev - User alyson fritsch registered
-[2022-08-09T13:21:35.651] [INFO] dev - POST /users/register
-[2022-08-09T13:21:35.862] [INFO] dev - User alyson fritsch registered
-[2022-08-09T13:21:37.270] [INFO] dev - POST /users/register
-[2022-08-09T13:21:37.432] [INFO] dev - User alyson fritsch registered
-[2022-08-09T13:27:10.850] [INFO] dev - POST /users/register
-[2022-08-09T13:27:11.027] [INFO] dev - User admin admin registered
-[2022-08-09T13:27:12.284] [INFO] dev - POST /users/register
-[2022-08-09T13:27:12.439] [INFO] dev - User alyson fritsch registered
-[2022-08-09T13:27:13.634] [INFO] dev - POST /users/register
-[2022-08-09T13:27:13.800] [INFO] dev - User alyson fritsch registered
-[2022-08-09T14:37:20.998] [INFO] dev - POST /users/register
-[2022-08-09T14:37:21.203] [INFO] dev - User alyson fritsch registered
-[2022-08-09T14:38:01.044] [INFO] dev - POST /users/register
-[2022-08-09T14:38:01.272] [INFO] dev - User alyson fritsch registered
-[2022-08-09T14:40:37.400] [INFO] dev - POST /users/register
-[2022-08-09T14:40:37.606] [INFO] dev - User alyson fritsch registered
-[2022-08-09T14:45:41.257] [INFO] dev - POST /users/register
-[2022-08-09T14:45:41.493] [INFO] dev - User alyson fritsch registered
-[2022-08-09T14:46:42.230] [INFO] dev - POST /users/register
-[2022-08-09T14:46:42.490] [INFO] dev - User admin admin registered
-[2022-08-09T14:48:18.023] [INFO] dev - POST /users/register
-[2022-08-09T14:48:18.242] [INFO] dev - User alyson fritsch registered
-[2022-08-09T14:48:20.102] [INFO] dev - POST /users/register
-[2022-08-09T14:48:20.240] [INFO] dev - User admin admin registered
-[2022-08-09T14:52:07.107] [INFO] dev - POST /users/register
-[2022-08-09T14:52:07.505] [INFO] dev - User alyson fritsch registered
-[2022-08-09T14:56:00.512] [INFO] dev - POST /users/register
-[2022-08-09T14:56:00.719] [INFO] dev - User admin admin registered
-[2022-08-09T14:56:02.087] [INFO] dev - POST /users/register
-[2022-08-09T14:56:02.266] [INFO] dev - User alyson fritsch registered
-[2022-08-09T15:32:32.915] [INFO] dev - POST /users/register
-[2022-08-09T15:32:35.213] [INFO] dev - POST /users/register
-[2022-08-09T15:32:37.316] [INFO] dev - POST /users/register
-[2022-08-09T15:32:37.862] [INFO] dev - User admin admin registered
-[2022-08-09T15:32:37.924] [INFO] dev - User alyson fritsch registered
-[2022-08-09T15:32:37.959] [INFO] dev - User alyson fritsch registered
-[2022-08-09T15:35:02.587] [INFO] dev - POST /users/register
-[2022-08-09T15:35:02.809] [INFO] dev - User admin admin registered
-[2022-08-09T15:35:04.295] [INFO] dev - POST /users/register
-[2022-08-09T15:35:04.512] [INFO] dev - User alyson fritsch registered
-[2022-08-09T15:35:05.904] [INFO] dev - POST /users/register
-[2022-08-09T15:35:06.112] [INFO] dev - User alyson fritsch registered
+[2022-08-10T12:21:30.356] [INFO] dev - POST /users/register
+[2022-08-10T12:21:30.589] [INFO] dev - User admin admin registered
+[2022-08-10T12:21:36.041] [INFO] dev - POST /products
+[2022-08-10T12:21:43.864] [INFO] dev - POST /products
+[2022-08-10T12:21:44.152] [INFO] dev - POST /products
+[2022-08-10T12:21:56.439] [INFO] dev - POST /products
+[2022-08-10T12:21:56.700] [INFO] dev - POST /products
+[2022-08-10T12:22:03.178] [INFO] dev - POST /users/register
+[2022-08-10T12:22:03.369] [INFO] dev - User alyson fritsch registered
+[2022-08-10T12:22:10.714] [INFO] dev - GET /products
+[2022-08-10T12:22:23.952] [INFO] dev - POST /carts
+[2022-08-10T12:22:31.278] [INFO] dev - POST /carts
+[2022-08-10T12:22:38.246] [INFO] dev - POST /carts
+[2022-08-10T12:22:38.970] [INFO] dev - POST /carts
+[2022-08-10T12:33:53.679] [INFO] dev - POST /users/login
+[2022-08-10T12:33:53.789] [INFO] dev - User admin logged in
+[2022-08-10T12:33:58.865] [ERROR] dev - TypeError: Cannot read properties of undefined (reading 'forEach')
+    at generateOrder (file:///C:/Users/Francisco%20Filosi/Desktop/Curso_Backend_CoderHouse/Desafios/Desafio%2018/controllers/ordersController.js:10:23)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-08-10T12:35:13.317] [INFO] dev - POST /users/login
+[2022-08-10T12:35:13.359] [WARN] dev - User with email alyson.fritsch37@ethereal.email does not exists
+[2022-08-10T12:35:50.132] [INFO] dev - POST /users/login
+[2022-08-10T12:35:50.236] [INFO] dev - User alyson logged in
+[2022-08-10T12:45:58.803] [INFO] dev - POST /users/login
+[2022-08-10T12:45:58.915] [INFO] dev - User alyson logged in
+[2022-08-10T12:54:21.287] [INFO] dev - POST /users/login
+[2022-08-10T12:54:21.404] [INFO] dev - User alyson logged in
+[2022-08-10T12:54:52.590] [ERROR] dev - Error: Order already accepted
+    at daoOrders.acceptOrder (file:///C:/Users/Francisco%20Filosi/Desktop/Curso_Backend_CoderHouse/Desafios/Desafio%2018/daos/daoOrders.js:18:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async acceptOrder (file:///C:/Users/Francisco%20Filosi/Desktop/Curso_Backend_CoderHouse/Desafios/Desafio%2018/controllers/ordersController.js:48:23)
+[2022-08-10T13:03:05.104] [ERROR] dev - TypeError: Cannot read properties of undefined (reading 'status')
+    at acceptOrder (file:///C:/Users/Francisco%20Filosi/Desktop/Curso_Backend_CoderHouse/Desafios/Desafio%2018/controllers/ordersController.js:51:13)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-08-10T13:09:32.616] [INFO] dev - POST /users/login
+[2022-08-10T13:09:32.741] [INFO] dev - User alyson logged in
+[2022-08-10T13:20:50.014] [INFO] dev - POST /users/login
+[2022-08-10T13:20:50.122] [INFO] dev - User alyson logged in
+[2022-08-10T13:20:54.606] [ERROR] dev - TypeError: message.sendWhatsappInAccept is not a function
+    at acceptOrder (file:///C:/Users/Francisco%20Filosi/Desktop/Curso_Backend_CoderHouse/Desafios/Desafio%2018/controllers/ordersController.js:52:17)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-08-10T13:25:35.729] [ERROR] dev - Error al Enviar: Cannot read properties of undefined (reading 'name')
+[2022-08-10T13:30:23.245] [ERROR] dev - Error al Enviar: Assignment to constant variable.
+[2022-08-10T13:34:04.870] [INFO] dev - POST /users/login
+[2022-08-10T13:34:04.992] [INFO] dev - User alyson logged in

@@ -1,6 +1,6 @@
 import { carts, products } from './../daos/index.js';
 
-export const postProductToCart = async (req, res) => {
+export const postProductToCart = async (req, res, next) => {
     try{
         const { quantity, productId } = req.body;
         const product = await products.getById(productId);
@@ -18,20 +18,20 @@ export const postProductToCart = async (req, res) => {
             res.status(200).send({ message: 'Product added to cart' });
         }
     } catch(err) {
-        res.status(500).json({ message: err.message });
+        next(err);
     }
 }
 
-export const getProductsFromCart = async (req, res) => {
+export const getProductsFromCart = async (req, res, next) => {
     try{
         const cart = await carts.getProductsFromCart(req.user._id);
         res.status(200).send(cart);
     } catch(err) {
-        res.status(500).json({ message: err.message });
+        next(err);
     }
 }
 
-export const deleteProductFromCart = async (req, res) => {
+export const deleteProductFromCart = async (req, res, next) => {
     try{
         const { productId } = req.body;
         const cart = await carts.getByUserId(req.user._id);
@@ -46,6 +46,6 @@ export const deleteProductFromCart = async (req, res) => {
         await carts.updateById(cart);
         res.status(200).send(cart);
     } catch(err) {
-        res.status(500).json({ message: err.message });
+        next(err);
     }
 }

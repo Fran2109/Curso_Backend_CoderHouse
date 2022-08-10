@@ -11,6 +11,9 @@ import { passportInitialize, passportSession } from './passport/passport.js';
 import productsRouter from './routers/productsRouter.js';
 import cartsRouter from './routers/cartsRouter.js';
 import usersRouter from './routers/usersRouter.js';
+import ordersRouter from './routers/ordersRouter.js';
+// Logs
+import { errorHandling } from './errors/errorHandling.js';
 
 const app = express();
 
@@ -26,5 +29,9 @@ app.use(passportSession);
 app.use('/products', productsRouter);
 app.use('/carts', cartsRouter);
 app.use('/users', usersRouter);
+app.use('/orders', ordersRouter);
+
+// Error handling
+app.use(errorHandling);
 
 initializeServer(app, port);
