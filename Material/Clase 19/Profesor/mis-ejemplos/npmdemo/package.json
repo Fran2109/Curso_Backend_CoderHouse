@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "name": "npm-demo-for-ch",
+  "version": "1.0.6",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
