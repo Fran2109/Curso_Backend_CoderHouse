@@ -1,5 +1,4 @@
-import logger from "../logs/logger.js";
-
+import { logger } from "./index.js";
 class containerMongoose {
     constructor(collection) {
         this.collection = collection;

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 </head>
 
@@ -30,16 +30,15 @@
     document.getElementById('button').addEventListener('click', async () => {
         let number = document.getElementById('input').value;
         let query = "/api/randoms";
-        if(number != "")
-        {
+        if (number != "") {
             query = `${query}/${number}`;
         }
         await fetch(query)
-        .then(response => response.json())
-        .then(data => {
-            numbers = data;
-        })
-        .catch(error => console.log(error));
+            .then(response => response.json())
+            .then(data => {
+                numbers = data;
+            })
+            .catch(error => console.log(error));
         const list = [];
         Object.keys(numbers).forEach(key => {
             list.push({ key: key, cant: numbers[key] });

@@ -1,14 +1,14 @@
 const auth = (req, res, next) => {
     if (req.isAuthenticated()) {
-        next()
+        next();
     } else {
-        res.redirect('/login')
+        res.redirect("/login");
     }
-}
+};
 
 const debug = (req, res, next) => {
     req.debug = true;
     next();
-}
+};
 
 export { auth, debug };

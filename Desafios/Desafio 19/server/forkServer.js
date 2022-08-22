@@ -1,5 +1,5 @@
-import createServer from './createServer.js';
+import createServer from "./createServer.js";
 
-export default function forkServer(httpServer, port){
+export default function forkServer(httpServer, port) {
     createServer(httpServer, port);
 }

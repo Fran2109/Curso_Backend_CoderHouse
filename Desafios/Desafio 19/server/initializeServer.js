@@ -1,17 +1,11 @@
-import { mode } from './../parameters/parameters.js';
-import clusterServer from './clusterServer.js';
-import forkServer from './forkServer.js';
+import { fork } from "./../args/args.js";
+import clusterServer from "./clusterServer.js";
+import forkServer from "./forkServer.js";
 
-export default function initializeServer(httpServer, port){
-    switch(mode){
-        case "FORK":
-            forkServer(httpServer, port);
-            break;
-        case "CLUSTER":
-            clusterServer(httpServer, port);
-            break;
-        default:
-            forkServer(httpServer, port);
-            break;
+export default function initializeServer(httpServer, port) {
+    if (fork) {
+        forkServer(httpServer, port);
+    } else {
+        clusterServer(httpServer, port);
     }
 }

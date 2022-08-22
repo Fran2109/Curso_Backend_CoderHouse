@@ -1,12 +1,12 @@
-process.on('message', msg => {
+process.on("message", (msg) => {
     const numbers = {};
-    for(let i = 1; i <= 1000; i++) {
+    for (let i = 1; i <= 1000; i++) {
         numbers[i] = 0;
     }
-    for(let i=0; i<msg; i++){
-        numbers[Math.floor(Math.random() * 1000)+1]++;
+    for (let i = 0; i < msg; i++) {
+        numbers[Math.floor(Math.random() * 1000) + 1]++;
     }
-    process.send(numbers)
-})
+    process.send(numbers);
+});
 
-process.send('listo')
+process.send("listo");
