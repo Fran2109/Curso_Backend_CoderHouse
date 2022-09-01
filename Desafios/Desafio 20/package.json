@@ -4,7 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js --d --f"
+    "start": "nodemon server.js --d --f",
+    "mongo": "nodemon server.js --d --f --storage mongo",
+    "memory": "nodemon server.js --d --f --storage memory",
+    "file": "nodemon server.js --d --f --storage file"
   },
   "type": "module",
   "keywords": [],
@@ -21,6 +24,7 @@
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
+    "fs": "^0.0.1-security",
     "log4js": "^6.6.1",
     "mongoose": "^6.4.3",
     "nodemon": "^2.0.19",

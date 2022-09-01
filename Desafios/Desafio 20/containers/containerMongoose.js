@@ -4,14 +4,9 @@ class containerMongoose {
         this.collection = collection;
     }
     async save(elem){
-        try{
-            const added = new this.collection(elem);
-            await added.save();
-            return added;
-        } catch(err){
-            logger.error(`Error al Insertar: ${err.message}`);
-            throw new Error(`Error al Insertar: ${err.message}`)
-        }
+        const added = new this.collection(elem);
+        await added.save();
+        return added;
     }
     async getById(id){
         try{

@@ -1,8 +1,11 @@
-import containerMongoose from "../containers/containerMongoose.js";
-
-class daoUsers extends containerMongoose {
+export default class daoMongoUsers {
     constructor(collection) {
-        super(collection);
+        this.collection = collection;
+    }
+    async save(user) {
+        const added = new this.collection(user);
+        await added.save();
+        return added;
     }
     async findByUsername(username) {
         const userFinded = await this.collection.findOne({ username });
@@ -16,6 +19,8 @@ class daoUsers extends containerMongoose {
         }
         return added;
     }
+    async getById(id) {
+        const userFinded = await this.collection.findOne({ _id: id });
+        return userFinded;
+    }
 }
-
-export default daoUsers;

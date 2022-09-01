@@ -10,7 +10,7 @@ if (dev) {
     });
 }
 
-const mongooseConfig = {
+export const mongooseConfig = {
     collections: {
         products: {
             name: "products",
@@ -44,12 +44,11 @@ const mongooseConfig = {
         },
     },
 };
-
-const mongoUrl = process.env.MONGOURL;
-
-const mongoOptions = JSON.parse(process.env.MONGOOPTIONS);
-
-const mongoStore = {
+export const mongoUrl = process.env.MONGOURL;
+export const mongoOptions = JSON.parse(process.env.MONGOOPTIONS);
+export const productsFile = process.env.PRODUCTSFILE;
+export const messagesFile = process.env.MESSAGESFILE;
+export const mongoStore = {
     store: MongoStore.create({
         mongoUrl: mongoUrl,
         mongoOptions: mongoOptions,
@@ -62,4 +61,3 @@ const mongoStore = {
     },
 };
 
-export { mongooseConfig, mongoStore, mongoUrl, mongoOptions };

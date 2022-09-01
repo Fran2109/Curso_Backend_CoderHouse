@@ -1,18 +1,6 @@
-import containerMongoose from "../containers/containerMongoose.js";
 import { faker } from "@faker-js/faker";
 import { normalize, schema } from "normalizr";
-import util from "util";
-import {
-    productsCollection,
-    messagesCollection,
-} from "../connections/mongoose.js";
-
-const productos = new containerMongoose(productsCollection);
-const mensajes = new containerMongoose(messagesCollection);
-
-function print(objeto) {
-    console.log(util.inspect(objeto, false, 12, true));
-}
+import service from "./../service/index.js";
 
 const generateObject = () => {
     return {
@@ -28,7 +16,7 @@ const schemaMessages = new schema.Entity(
     {
         author: schemaAuthor,
     },
-    { idAttribute: "_id" }
+    { idAttribute: "id" }
 );
 
 const normalizeMessages = (messages) => {
@@ -38,46 +26,46 @@ const normalizeMessages = (messages) => {
 
 async function socketController(socket, io) {
     socket.emit("connectionToServer", {
-        array_productos: await productos.getAll(),
-        array_mensajes: normalizeMessages(await mensajes.getAll()),
+        array_productos: await service.getAllProducts(),
+        array_mensajes: normalizeMessages(await service.getAllMessages()),
     });
     socket.emit("connectionToTest", {
-        productsTest: productos.populate(generateObject),
+        productsTest: service.populateProducts(generateObject),
     });
     socket.on("agregarProducto", async (data) => {
-        await productos.save(data);
+        await service.insertProduct(data);
         io.sockets.emit("actualizarTabla", {
-            array_productos: await productos.getAll(),
+            array_productos: await service.getAllProducts(),
         });
     });
     socket.on("enviarMensaje", async (data) => {
-        await mensajes.save(data);
+        await service.insertMessage(data);
         io.sockets.emit("actualizarMensajes", {
-            array_mensajes: normalizeMessages(await mensajes.getAll()),
+            array_mensajes: normalizeMessages(await service.getAllMessages()),
         });
     });
     socket.on("eliminarProductos", async () => {
-        await productos.deleteAll();
+        await service.deleteAllProducts();
         io.sockets.emit("actualizarTabla", {
-            array_productos: await productos.getAll(),
+            array_productos: await service.getAllProducts(),
         });
     });
     socket.on("eliminarMensajes", async () => {
-        await mensajes.deleteAll();
+        await service.deleteAllMessages();
         io.sockets.emit("actualizarMensajes", {
-            array_mensajes: normalizeMessages(await mensajes.getAll()),
+            array_mensajes: normalizeMessages(await service.getAllMessages()),
         });
     });
     socket.on("eliminarProducto", async (id) => {
-        await productos.deleteById(id);
+        await service.deleteProductById(id);
         io.sockets.emit("actualizarTabla", {
-            array_productos: await productos.getAll(),
+            array_productos: await service.getAllProducts(),
         });
     });
     socket.on("editarProducto", async (id, producto) => {
-        await productos.updateById(id, producto);
+        await service.updateProductById(id, producto);
         io.sockets.emit("actualizarTabla", {
-            array_productos: await productos.getAll(),
+            array_productos: await service.getAllProducts(),
         });
     });
 }

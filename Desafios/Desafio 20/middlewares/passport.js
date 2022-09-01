@@ -1,10 +1,7 @@
 import passport from "passport";
 import { Strategy } from "passport-local";
-import daoUsers from "../daos/daoUsers.js";
+import service from "./../service/index.js";
 import bCrypt from "bcrypt";
-import { usersCollection } from "../connections/mongoose.js";
-
-const users = new daoUsers(usersCollection);
 
 passport.use(
     "register",
@@ -14,7 +11,7 @@ passport.use(
         },
         async function (req, username, password, done) {
             try {
-                const user = await users.saveIfDontExists({
+                const user = await service.saveUserIfDontExists({
                     username,
                     password: createHash(password),
                 });
@@ -34,7 +31,7 @@ passport.use(
     "login",
     new Strategy(async function (username, password, done) {
         try {
-            const user = await users.findByUsername(username);
+            const user = await service.findByUsername(username);
             if (user && bCrypt.compareSync(password, user.password)) {
                 done(null, user);
             } else {
@@ -50,9 +47,9 @@ passport.serializeUser((user, done) => {
     done(null, user._id);
 });
 
-passport.deserializeUser((id, done) => {
+passport.deserializeUser(async (id, done) => {
     try {
-        const user = users.getById(id);
+        const user = await service.getUserById(id);
         done(null, user);
     } catch (error) {
         done(error);

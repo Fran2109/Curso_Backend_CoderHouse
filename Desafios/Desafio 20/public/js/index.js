@@ -8,7 +8,7 @@ const schemaMessages = new schema.Entity(
     {
         author: schemaAuthor,
     },
-    { idAttribute: "_id" }
+    { idAttribute: "id" }
 );
 
 const denormalizeMessages = (messages) => {
@@ -38,11 +38,6 @@ socket.on("actualizarMensajes", ({ array_mensajes }) => {
 });
 
 const actualizarProductos = async (array_productos) => {
-    array_productos = array_productos.map((item) => {
-        const id = item._id;
-        delete item._id;
-        return { ...item, id: id };
-    });
     let context = {
         titulo: "Productos",
         array_productos,
