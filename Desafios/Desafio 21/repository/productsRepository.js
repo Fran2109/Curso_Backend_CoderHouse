@@ -13,6 +13,7 @@ export default class ProductsRepository {
         return element;
     }
     async getAll(){
+        console.log("Repository Get All");
         const elements = await this.products.getAll();
         return elements;
     }

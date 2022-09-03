@@ -16,8 +16,8 @@ export default class daoMongoProducts {
     }
     async getAll(){
         const elements = await this.collection.find().select({ __v: 0 }).lean();
+        console.log(elements)
         return elements.map(elem => new dtoProduct(elem));
-        
     }
     async updateById(id, elem){
         const updated = await this.collection.findByIdAndUpdate(id, elem, { new: true });
