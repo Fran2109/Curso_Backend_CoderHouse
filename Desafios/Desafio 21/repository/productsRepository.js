@@ -15,6 +15,7 @@ export default class ProductsRepository {
     async getAll(){
         console.log("Repository Get All");
         const elements = await this.products.getAll();
+        console.log(elements);
         return elements;
     }
     async updateById(id, elem){
