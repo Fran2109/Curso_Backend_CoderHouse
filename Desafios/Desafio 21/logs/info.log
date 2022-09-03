@@ -418,3 +418,6 @@
 [2022-09-03T17:29:05.708] [INFO] default - GET /successLogin
 [2022-09-03T17:29:05.806] [INFO] default - GET /
 [2022-09-03T17:29:06.186] [INFO] default - GET /login
+[2022-09-03T17:29:47.276] [INFO] default - GET /login
+[2022-09-03T17:30:27.523] [INFO] default - GET /
+[2022-09-03T17:30:27.869] [INFO] default - GET /login
