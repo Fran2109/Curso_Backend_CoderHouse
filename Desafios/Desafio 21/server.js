@@ -9,7 +9,7 @@ import { Server as IOServer } from "socket.io";
 import socketController from "./controllers/socketController.js";
 // Routers
 import WebRouter from "./routers/webRouter.js";
-import apiRouter from "./routers/apiRouter.js";
+import ApiRouter from "./routers/apiRouter.js";
 // Args
 import { port } from "./args/args.js";
 // Server
@@ -32,8 +32,9 @@ app.use(passportSession);
 
 // Routers
 const webRouter = new WebRouter();
+const apiRouter = new ApiRouter();
 app.use("/", webRouter.start());
-app.use("/api", apiRouter);
+app.use("/api", apiRouter.start());
 
 app.all("*", logWarning, (req, res) => {
     res.status(404).json({

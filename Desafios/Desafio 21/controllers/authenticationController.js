@@ -1,27 +1,32 @@
 import passport from "passport";
 
-const authenticationController = {
-    loginController: passport.authenticate("login", {
-        successRedirect: "/api/successLogin",
-        failureRedirect: "/api/failureLogin",
-    }),
-    succesLogin: (req, res) => {
+export default class authenticationController {
+    constructor() { }
+    loginController() {
+        return passport.authenticate("login", {
+            successRedirect: "/api/successLogin",
+            failureRedirect: "/api/failureLogin",
+        })
+    }
+    succesLogin(req, res) {
         res.redirect("/");
-    },
-    failureLogin: (req, res) => {
+    }
+    failureLogin(req, res) {
         res.redirect("/loginError");
-    },
-    registerController: passport.authenticate("register", {
-        successRedirect: "/api/successSignup",
-        failureRedirect: "/api/failureSignup",
-    }),
-    successSignup: (req, res) => {
+    }
+    registerController() {
+        return passport.authenticate("register", {
+            successRedirect: "/api/successSignup",
+            failureRedirect: "/api/failureSignup",
+        })
+    }
+    successSignup(req, res) {
         res.redirect("/");
-    },
-    failureSignup: (req, res) => {
+    }
+    failureSignup(req, res) {
         res.redirect("/signupError");
-    },
-    logout: (req, res) => {
+    }
+    logout(req, res) {
         if (req.isAuthenticated()) {
             req.logout(function (err) {
                 if (err) {
@@ -30,7 +35,5 @@ const authenticationController = {
                 res.redirect("/login");
             });
         }
-    },
-};
-
-export default authenticationController;
+    }
+}
