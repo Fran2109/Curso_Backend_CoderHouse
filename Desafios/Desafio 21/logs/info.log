@@ -426,3 +426,4 @@
 [2022-09-03T17:38:26.017] [INFO] default - GET /login
 [2022-09-03T17:38:54.431] [ERROR] default - Error al Leer: elenents is not defined
 [2022-09-03T17:39:04.349] [INFO] default - GET /login
+[2022-09-03T17:40:56.174] [INFO] default - GET /login
