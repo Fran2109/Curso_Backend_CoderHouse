@@ -1,30 +1,23 @@
 import { Router } from "express";
-import webControllers from "../controllers/webController.js";
+import WebController from "../controllers/webController.js";
 import { auth } from "../middlewares/middlewares.js";
 import { logInfo } from "../middlewares/logsMiddlewares.js";
 
 const router = new Router();
 
-const {
-    inicio,
-    login,
-    logout,
-    signup,
-    signupError,
-    loginError,
-    info,
-    infoZip,
-    random,
-} = webControllers;
-
-router.get("/", auth, logInfo, inicio);
-router.get("/login", logInfo, login);
-router.get("/logout", logInfo, logout);
-router.get("/signup", logInfo, signup);
-router.get("/signupError", logInfo, signupError);
-router.get("/loginError", logInfo, loginError);
-router.get("/info", auth, logInfo, info);
-router.get("/infoZip", auth, logInfo, infoZip);
-router.get("/random", auth, logInfo, random);
-
-export default router;
+export default class WebRouter {
+    constructor () {
+        this.WebController = new WebController();
+    }
+    start(){
+        router.get("/", auth, logInfo, this.WebController.inicio);
+        router.get("/login", logInfo, this.WebController.login);
+        router.get("/logout", logInfo, this.WebController.logout);
+        router.get("/signup", logInfo, this.WebController.signup);
+        router.get("/signupError", logInfo, this.WebController.signupError);
+        router.get("/loginError", logInfo, this.WebController.loginError);
+        router.get("/info", auth, logInfo, this.WebController.info);
+        router.get("/infoZip", auth, logInfo, this.WebController.infoZip);
+        router.get("/random", auth, logInfo, this.WebController.random);
+    }
+}

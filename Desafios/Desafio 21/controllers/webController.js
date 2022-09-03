@@ -1,31 +1,30 @@
-const webControllers = {
-    inicio: (req, res) => {
+export default class webController {
+    constructor () { }
+    inicio (req, res) {
         res.sendFile("index.html", { root: "./public/views" });
-    },
-    login: (req, res) => {
+    }
+    login (req, res) {
         res.sendFile("login.html", { root: "./public/views" });
-    },
-    loginError: (req, res) => {
+    }
+    loginError (req, res) {
         res.sendFile("errorLogin.html", { root: "./public/views" });
-    },
-    logout: (req, res) => {
+    }
+    logout (req, res) {
         res.sendFile("logout.html", { root: "./public/views" });
-    },
-    signup: (req, res) => {
+    }
+    signup (req, res) {
         res.sendFile("signup.html", { root: "./public/views" });
-    },
-    signupError: (req, res) => {
+    }
+    signupError (req, res) {
         res.sendFile("errorSignup.html", { root: "./public/views" });
-    },
-    info: (req, res) => {
+    }
+    info (req, res) {
         res.sendFile("info.html", { root: "./public/views" });
-    },
-    infoZip: (req, res) => {
+    }
+    infoZip (req, res) {
         res.sendFile("infoZip.html", { root: "./public/views" });
-    },
-    random: (req, res) => {
+    }
+    random (req, res) {
         res.sendFile("random.html", { root: "./public/views" });
-    },
-};
-
-export default webControllers;
+    }
+}
