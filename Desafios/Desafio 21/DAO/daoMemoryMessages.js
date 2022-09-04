@@ -16,6 +16,7 @@ export default class daoMongoMessages {
         return new dtoMessageMemory(newElem);
     }
     async getAll() {
+        console.log("Get All Mongo Messages")
         return this.collection.map((message) => new dtoMessageMemory(message) );
     }
     async deleteAll() {

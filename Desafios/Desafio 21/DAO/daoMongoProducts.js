@@ -15,6 +15,7 @@ export default class daoMongoProducts {
         return new dtoProduct(element);
     }
     async getAll(){
+        console.log("Get All Mongo Products")
         const elements = await this.collection.find().select({ __v: 0 }).lean();
         console.log(elements)
         return elements.map(elem => new dtoProduct(elem));

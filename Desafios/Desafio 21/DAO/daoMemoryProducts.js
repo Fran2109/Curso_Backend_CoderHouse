@@ -25,6 +25,7 @@ export default class daoMemoryProducts {
         }
     }
     async getAll(){
+        console.log("Get All Memory Products")
         return this.collection.map(elem => new dtoProduct(elem));
     }
     async updateById(id, elem){

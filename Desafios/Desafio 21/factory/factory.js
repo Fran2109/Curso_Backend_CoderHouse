@@ -8,11 +8,13 @@ let users;
 
 switch(storage){
     case "mongo":
+        console.log("Storage: ", storage);
         const { productsCollection, messagesCollection } = await import("./../connections/mongoose.js");
         const { default : daoMongoProducts } = await import('./../dao/daoMongoProducts.js');
         products = new daoMongoProducts(productsCollection);
         const { default : daoMongoMessages } = await import('./../dao/daoMongoMessages.js');
         messages = new daoMongoMessages(messagesCollection);
+        break;
     case "memory":
         const { default : daoMemoryProducts } = await import('./../dao/daoMemoryProducts.js');
         products = new daoMemoryProducts();

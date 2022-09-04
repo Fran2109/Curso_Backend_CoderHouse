@@ -9,6 +9,7 @@ export default class daoMongoMessages {
         return new dtoMessageMongo(added);
     }
     async getAll() {
+        console.log("Get All Mongo Messages")
         const elements = await this.collection.find().select({ __v: 0 }).lean();
         return elements.map(elem => new dtoMessageMongo(elem));
     }

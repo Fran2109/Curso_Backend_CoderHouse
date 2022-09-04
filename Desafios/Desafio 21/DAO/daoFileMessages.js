@@ -21,6 +21,7 @@ export default class daoFileMessages {
     }
     async getAll() {
         try {
+            console.log("Get All File Messages")
             let content = await fs.promises.readFile(this.filePath, 'utf-8');
             return JSON.parse(content).map(element => new dtoMessage(element));
         }

@@ -1,18 +1,12 @@
 import { faker } from "@faker-js/faker";
 import { normalize, schema } from "normalizr";
-import Service from "./../service/service.js";
-
+import service from "./../service/index.js";
 export default class socketController {
     #io
-    #service
     #schemaAuthor
     #schemaMessages
-    /**
-        @param {Service} service
-    **/
-    constructor(io, service){
+    constructor(io){
         this.#io = io;
-        this.#service = service;
         this.#schemaAuthor = new schema.Entity("author", {}, { idAttribute: "email" });
         this.#schemaMessages = new schema.Entity("messages", { author: this.#schemaAuthor, }, { idAttribute: "id" });
     }
@@ -29,46 +23,46 @@ export default class socketController {
     }
     async start(socket){
         socket.emit("connectionToServer", {
-            array_productos: await this.#service.getAllProducts(),
-            array_mensajes: this.#normalizeMessages(await this.#service.getAllMessages()),
+            array_productos: await service.getAllProducts(),
+            array_mensajes: this.#normalizeMessages(await service.getAllMessages()),
         });
         socket.emit("connectionToTest", {
-            productsTest: this.#service.populateProducts(this.#generateObject),
+            productsTest: service.populateProducts(this.#generateObject),
         });
         socket.on("agregarProducto", async (data) => {
-            await this.#service.insertProduct(data);
+            await service.insertProduct(data);
             this.#io.sockets.emit("actualizarTabla", {
-                array_productos: await this.#service.getAllProducts(),
+                array_productos: await service.getAllProducts(),
             });
         });
         socket.on("enviarMensaje", async (data) => {
-            await this.#service.insertMessage(data);
+            await service.insertMessage(data);
             this.#io.sockets.emit("actualizarMensajes", {
-                array_mensajes: this.#normalizeMessages(await this.#service.getAllMessages()),
+                array_mensajes: this.#normalizeMessages(await service.getAllMessages()),
             });
         });
         socket.on("eliminarProductos", async () => {
-            await this.#service.deleteAllProducts();
+            await service.deleteAllProducts();
             this.#io.sockets.emit("actualizarTabla", {
-                array_productos: await this.#service.getAllProducts(),
+                array_productos: await service.getAllProducts(),
             });
         });
         socket.on("eliminarMensajes", async () => {
-            await this.#service.deleteAllMessages();
+            await service.deleteAllMessages();
             this.#io.sockets.emit("actualizarMensajes", {
-                array_mensajes: this.#normalizeMessages(await this.#service.getAllMessages()),
+                array_mensajes: this.#normalizeMessages(await service.getAllMessages()),
             });
         });
         socket.on("eliminarProducto", async (id) => {
-            await this.#service.deleteProductById(id);
+            await service.deleteProductById(id);
             this.#io.sockets.emit("actualizarTabla", {
-                array_productos: await this.#service.getAllProducts(),
+                array_productos: await service.getAllProducts(),
             });
         });
         socket.on("editarProducto", async (id, producto) => {
-            await this.#service.updateProductById(id, producto);
+            await service.updateProductById(id, producto);
             this.#io.sockets.emit("actualizarTabla", {
-                array_productos: await this.#service.getAllProducts(),
+                array_productos: await service.getAllProducts(),
             });
         });
     }

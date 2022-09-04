@@ -30,6 +30,7 @@ export default class daoFileProducts {
     }
     async getAll() {
         try {
+            console.log("Get All File Products")
             let content = await fs.promises.readFile(this.filePath, 'utf-8');
             return JSON.parse(content).map(element => new dtoProduct(element));
         }

@@ -16,8 +16,6 @@ import { port } from "./args/args.js";
 import initializeServer from "./server/initializeServer.js";
 // Logs
 import { logWarning } from "./middlewares/logsMiddlewares.js";
-// Service
-import service from "./service/index.js";
 
 // Consts
 const app = express();
@@ -45,7 +43,7 @@ app.all("*", logWarning, (req, res) => {
     });
 });
 
-const socketController = new SocketController(io, service);
+const socketController = new SocketController(io);
 io.on("connection", (socket) => socketController.start(socket));
 //io.on("connection", (socket) => socketController(socket, io));
 
