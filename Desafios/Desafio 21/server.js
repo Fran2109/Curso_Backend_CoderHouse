@@ -10,6 +10,7 @@ import SocketController from "./controllers/socketController.js";
 // Routers
 import WebRouter from "./routers/webRouter.js";
 import ApiRouter from "./routers/apiRouter.js";
+import ProductsRouter from "./routers/productsRouter.js";
 // Args
 import { port } from "./args/args.js";
 // Server
@@ -21,6 +22,10 @@ import { logWarning } from "./middlewares/logsMiddlewares.js";
 const app = express();
 const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
+const webRouter = new WebRouter();
+const apiRouter = new ApiRouter();
+const productsRouter = new ProductsRouter();
+const socketController = new SocketController(io);
 
 // Middlewares
 app.use(express.static("./public"));
@@ -31,10 +36,9 @@ app.use(passportInitialize);
 app.use(passportSession);
 
 // Routers
-const webRouter = new WebRouter();
-const apiRouter = new ApiRouter();
 app.use("/", webRouter.start());
 app.use("/api", apiRouter.start());
+app.use("/products", productsRouter.start());
 
 app.all("*", logWarning, (req, res) => {
     res.status(404).json({
@@ -43,9 +47,7 @@ app.all("*", logWarning, (req, res) => {
     });
 });
 
-const socketController = new SocketController(io);
 io.on("connection", (socket) => socketController.start(socket));
-//io.on("connection", (socket) => socketController(socket, io));
 
 //Listen
 initializeServer(httpServer, port);
