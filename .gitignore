@@ -1,2 +1,4 @@
 node_modules
-.log
+Desafios/Desafio 21/logs/error.log
+Desafios/Desafio 21/logs/info.log
+Desafios/Desafio 21/logs/warning.log
