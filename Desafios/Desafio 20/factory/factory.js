@@ -13,6 +13,7 @@ switch(storage){
         products = new daoMongoProducts(productsCollection);
         const { default : daoMongoMessages } = await import('./../dao/daoMongoMessages.js');
         messages = new daoMongoMessages(messagesCollection);
+        break;
     case "memory":
         const { default : daoMemoryProducts } = await import('./../dao/daoMemoryProducts.js');
         products = new daoMemoryProducts();
