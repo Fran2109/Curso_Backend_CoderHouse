@@ -337,3 +337,8 @@
 [2022-08-31T21:35:30.383] [INFO] default - GET /failureSignup
 [2022-08-31T21:35:30.443] [INFO] default - GET /signupError
 [2022-08-31T21:35:33.184] [INFO] default - GET /signup
+[2022-09-03T10:36:52.405] [INFO] default - GET /login
+[2022-09-03T10:36:52.809] [WARN] default - GET /favicon.ico
+[2022-09-03T10:36:54.995] [INFO] default - POST /login
+[2022-09-03T10:42:33.493] [INFO] default - GET /login
+[2022-09-03T10:42:35.301] [INFO] default - POST /login
