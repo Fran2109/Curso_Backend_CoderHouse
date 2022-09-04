@@ -1,19 +1,17 @@
 import { users } from './../factory/factory.js';
 
 export default class UsersRepository {
+    #users;
     constructor() {
-        this.users = users;
+        this.#users = users;
     }
     async saveIfDontExists(userSignup) {
-        const user = await this.users.saveIfDontExists(userSignup);
-        return user;
+        return await this.#users.saveIfDontExists(userSignup);
     }
     async findByUsername(username) {
-        const user = await this.users.findByUsername(username);
-        return user;
+        return await this.#users.findByUsername(username);
     }
     async getById(id) {
-        const user = await this.users.getById(id);
-        return user;
+        return await this.#users.getById(id);
     }
 }

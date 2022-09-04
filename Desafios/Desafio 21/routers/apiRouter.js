@@ -4,7 +4,6 @@ import authenticationController from "../controllers/authenticationController.js
 import { auth, debug } from "../middlewares/middlewares.js";
 import compression from "compression";
 import { logInfo } from "../middlewares/logsMiddlewares.js";
-import passport from "passport";
 
 const router = new Router();
 

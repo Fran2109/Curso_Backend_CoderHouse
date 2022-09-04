@@ -1,34 +1,29 @@
 import { products } from './../factory/factory.js';
 
 export default class ProductsRepository {
+    #products;
     constructor() {
-        this.products = products;
+        this.#products = products;
     }
     async save(elem){
-        const added = await this.products.save(elem);
-        return added;
+        return await this.#products.save(elem);
     }
     async getById(id){
-        const element = await this.products.getById(id);
-        return element;
+        return await this.#products.getById(id);
     }
     async getAll(){
-        const elements = await this.products.getAll();
-        return elements;
+        return await this.#products.getAll();
     }
     async updateById(id, elem){
-        const updated = await this.products.updateById(id, elem);
-        return updated;
+        return await this.#products.updateById(id, elem);
     }
     async deleteById(id){
-        const deleted = await this.products.deleteById(id);
-        return deleted;
+        return await this.#products.deleteById(id);
     }
     async deleteAll(){
-        await this.products.deleteAll();
+        await this.#products.deleteAll();
     }
     populate(generateObject, cant){
-        const array = this.products.populate(generateObject, cant);
-        return array;
+        return this.#products.populate(generateObject, cant);
     }
 }

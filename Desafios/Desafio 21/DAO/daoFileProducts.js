@@ -4,8 +4,9 @@ import populateProducts from './../functions/populate.js';
 import overwriteFile from './../functions/overwriteFile.js';
 
 export default class daoFileProducts {
+    #filePath;
     constructor(filePath) {
-        this.filePath = filePath;
+        this.#filePath = filePath;
     }
     async save(element) {
         let content = await this.getAll();
@@ -17,7 +18,7 @@ export default class daoFileProducts {
         }
         element.id = newId;
         content.push(element);
-        await overwriteFile(this.filePath, content);
+        await overwriteFile(this.#filePath, content);
         return new dtoProduct(element);
     }
     async getById(id) {
@@ -30,7 +31,7 @@ export default class daoFileProducts {
     }
     async getAll() {
         try {
-            let content = await fs.promises.readFile(this.filePath, 'utf-8');
+            let content = await fs.promises.readFile(this.#filePath, 'utf-8');
             return JSON.parse(content).map(element => new dtoProduct(element));
         }
         catch (error) {
@@ -46,7 +47,7 @@ export default class daoFileProducts {
         Object.keys(producto).forEach(el => {
             element[el]=producto[el];
         });
-        await overwriteFile(this.filePath, content);
+        await overwriteFile(this.#filePath, content);
         return new dtoProduct(element);
     }
     async deleteById(id) {
@@ -56,11 +57,11 @@ export default class daoFileProducts {
         if(newContent.length == content.length) {  
             throw new Error(`Error al Borrar: Elemento no encontrado`);
         }
-        await overwriteFile(this.filePath, newContent);
+        await overwriteFile(this.#filePath, newContent);
         return new dtoProduct(content.find(producto => producto.id == id));
     }
     async deleteAll() {
-        await overwriteFile(this.filePath, []);
+        await overwriteFile(this.#filePath, []);
     }
     populate(generateObject, cant){
         return populateProducts(generateObject, cant)

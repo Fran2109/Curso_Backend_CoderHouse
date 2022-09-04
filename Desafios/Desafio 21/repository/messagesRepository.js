@@ -1,18 +1,17 @@
 import { messages } from './../factory/factory.js';
 
 export default class MessagesRepository {
+    #messages
     constructor() {
-        this.messages = messages;
+        this.#messages = messages;
     }
     async save(message) {
-        const added = await this.messages.save(message);
-        return added;
+        return await this.#messages.save(message);
     }
     async getAll(){
-        const elements = await this.messages.getAll();
-        return elements;
+        return await this.#messages.getAll();
     }
     async deleteAll(){
-        await this.messages.deleteAll();
+        await this.#messages.deleteAll();
     }
 }
