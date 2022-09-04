@@ -6,10 +6,7 @@ import bCrypt from "bcrypt";
 passport.use(
     "register",
     new Strategy(
-        {
-            passReqToCallback: true,
-        },
-        async function (req, username, password, done) {
+        async function (username, password, done) {
             try {
                 const user = await service.saveUserIfDontExists({
                     username,

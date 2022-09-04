@@ -6,7 +6,7 @@ import { passportInitialize, passportSession } from "./middlewares/passport.js";
 // Socket
 import { Server as HttpServer } from "http";
 import { Server as IOServer } from "socket.io";
-import socketController from "./controllers/socketController.js";
+import SocketController from "./controllers/socketController.js";
 // Routers
 import WebRouter from "./routers/webRouter.js";
 import ApiRouter from "./routers/apiRouter.js";
@@ -16,6 +16,8 @@ import { port } from "./args/args.js";
 import initializeServer from "./server/initializeServer.js";
 // Logs
 import { logWarning } from "./middlewares/logsMiddlewares.js";
+// Service
+import service from "./service/index.js";
 
 // Consts
 const app = express();
@@ -43,7 +45,9 @@ app.all("*", logWarning, (req, res) => {
     });
 });
 
-io.on("connection", (socket) => socketController(socket, io));
+const socketController = new SocketController(io, service);
+io.on("connection", (socket) => socketController.start(socket));
+//io.on("connection", (socket) => socketController(socket, io));
 
 //Listen
 initializeServer(httpServer, port);

@@ -51,3 +51,5 @@
 [2022-08-31T21:28:38.288] [ERROR] default - Error al Insertar: this.save is not a function
 [2022-08-31T21:29:00.152] [ERROR] default - Error al Insertar: this.collection.insertOne is not a function
 [2022-08-31T21:29:02.085] [ERROR] default - Error al Insertar: this.collection.insertOne is not a function
+[2022-09-03T17:02:44.885] [ERROR] default - Error al Crear: generateObject is not a function
+[2022-09-03T17:38:54.431] [ERROR] default - Error al Leer: elenents is not defined

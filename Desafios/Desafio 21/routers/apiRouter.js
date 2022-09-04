@@ -4,6 +4,7 @@ import authenticationController from "../controllers/authenticationController.js
 import { auth, debug } from "../middlewares/middlewares.js";
 import compression from "compression";
 import { logInfo } from "../middlewares/logsMiddlewares.js";
+import passport from "passport";
 
 const router = new Router();
 
@@ -16,10 +17,10 @@ export default class apiRouter {
     }
     start(){
         // Authentication
-        router.post("/login", logInfo, this.#authenticationController.loginController);
+        router.post("/login", logInfo, this.#authenticationController.loginController());        
         router.get("/successLogin", logInfo, this.#authenticationController.succesLogin);
         router.get("/failureLogin", logInfo, this.#authenticationController.failureLogin);
-        router.post("/signup", logInfo, this.#authenticationController.registerController);
+        router.post("/signup", logInfo, this.#authenticationController.registerController());
         router.get("/failureSignup", logInfo, this.#authenticationController.failureSignup);
         router.get("/successSignup", logInfo, this.#authenticationController.successSignup);
         router.post("/logout", logInfo, this.#authenticationController.logout);
