@@ -1,13 +1,10 @@
 import service from "./../service/index.js";
 
 export default class messagesController {
-    #service;
-    constructor() {
-    this.#service = service;
-    }
+    constructor() { }
     async getAllMessages(req, res) {
         try {
-            const messages = await this.#service.getAllMessages();
+            const messages = await service.getAllMessages();
             res.json(messages);
         } catch (error) {
             res.status(500).json({ error: error.message });
@@ -15,7 +12,7 @@ export default class messagesController {
     }
     async deleteAllMessages(req, res) {
         try {
-            const messages = await this.#service.deleteAllMessages();
+            const messages = await service.deleteAllMessages();
             res.json(messages);
         } catch (error) {
             res.status(500).json({ error: error.message });
@@ -23,8 +20,12 @@ export default class messagesController {
     }
     async insertMessage(req, res) {
         try {
-            const message = await this.#service.insertMessage(req.body);
-            res.json(message);
+            if(!req.body.text || !req.body.author || !req.body.dateString) {
+                return res.status(400).json({ error: "Message not created" });
+            } else {
+                const message = await service.insertMessage(req.body);
+                res.json(message);
+            }
         } catch (error) {
             res.status(500).json({ error: error.message });
         }

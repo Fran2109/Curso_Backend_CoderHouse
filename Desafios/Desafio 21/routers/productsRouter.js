@@ -3,7 +3,7 @@ import productsController from "./../controllers/productsController.js";
 
 const router = new Router();
 
-export default class apiRouter {
+export default class productsRouter {
     #productsController;
     constructor(){
         this.#productsController = new productsController();

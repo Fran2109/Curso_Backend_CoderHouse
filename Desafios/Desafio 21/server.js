@@ -11,6 +11,7 @@ import SocketController from "./controllers/socketController.js";
 import WebRouter from "./routers/webRouter.js";
 import ApiRouter from "./routers/apiRouter.js";
 import ProductsRouter from "./routers/productsRouter.js";
+import MessagesRouter from "./routers/messagesRouter.js";
 // Args
 import { port } from "./args/args.js";
 // Server
@@ -25,6 +26,7 @@ const io = new IOServer(httpServer);
 const webRouter = new WebRouter();
 const apiRouter = new ApiRouter();
 const productsRouter = new ProductsRouter();
+const messagesRouter = new MessagesRouter();
 const socketController = new SocketController(io);
 
 // Middlewares
@@ -39,6 +41,7 @@ app.use(passportSession);
 app.use("/", webRouter.start());
 app.use("/api", apiRouter.start());
 app.use("/products", productsRouter.start());
+app.use("/messages", messagesRouter.start());
 
 app.all("*", logWarning, (req, res) => {
     res.status(404).json({
