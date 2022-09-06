@@ -12,21 +12,32 @@ export default class daoMongoProducts {
         return new dtoProduct(added);
     }
     async getById(id){
-        const element = await this.#collection.findById(id).select({ __v: 0 }).lean();
-        return new dtoProduct(element);
+        try {
+            const element = await this.#collection.findById(id).select({ __v: 0 }).lean();
+            return new dtoProduct(element); 
+        } catch (error) {
+            return null;
+        }
     }
     async getAll(){
         const elements = await this.#collection.find().select({ __v: 0 }).lean();
         return elements.map(elem => new dtoProduct(elem));
     }
     async updateById(id, elem){
-        const updated = await this.#collection.findByIdAndUpdate(id, elem, { new: true });
-        return new dtoProduct(updated);
+        try {
+            const updated = await this.#collection.findByIdAndUpdate(id, elem, { new: true });
+            return new dtoProduct(updated);
+        } catch (error) {
+            return null;
+        }
     }
     async deleteById(id){
-        const deleted = await this.#collection.findByIdAndDelete(id);
-        if(!deleted){ throw new Error(`Error al Borrar: Elemento no encontrado`) }
-        return new dtoProduct(deleted);
+        try {
+            const deleted = await this.#collection.findByIdAndDelete(id);
+            return new dtoProduct(deleted);
+        } catch (error) {
+            return null
+        }        
     }
     async deleteAll(){
         await this.#collection.deleteMany({});

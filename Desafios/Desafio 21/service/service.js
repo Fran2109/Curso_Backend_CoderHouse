@@ -1,10 +1,17 @@
 import { logger } from "../containers/index.js";
+import ProductsRepository from "../repository/productsRepository.js";
+import MessagesRepository from "../repository/messagesRepository.js";
+import UsersRepository from "../repository/usersRepository.js";
 
 export default class Service {
     #repoProducts;
     #repoMessages;
     #repoUsers;
-
+    /**
+    * @param {ProductsRepository} repoProducts
+    * @param {MessagesRepository} repoMessages
+    * @param {UsersRepository} repoUsers
+    **/
     constructor(repoProducts, repoMessages, repoUsers) {
         this.#repoProducts = repoProducts;
         this.#repoMessages = repoMessages;
