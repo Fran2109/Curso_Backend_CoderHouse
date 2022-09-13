@@ -1,0 +1,9 @@
+la ultima version de Graphql (16) no funciona con la ultima version de express-graphql !!
+instalar estas, que sí funcionan, por ahora:
+"graphql": "^15.5.0",
+"express-graphql": "^0.12.0",
+
+=======================================
+
+aclarar que las comas son interpretadas iguales que los espacios en blanco o los saltos de linea, intercambiables y combinables por igual. son simples separadores. por ende, separar con espacio o con salto de linea o con coma es lo mismo.
+
