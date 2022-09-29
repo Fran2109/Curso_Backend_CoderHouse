@@ -1,4 +1,3 @@
-import MongoStore from "connect-mongo";
 import path from "path";
 import dotenv from "dotenv";
 import { dev } from "../args/args.js";
@@ -54,7 +53,7 @@ export const mongooseConfig = {
 export const mongoOptions = JSON.parse(process.env.MONGOOPTIONS);
 export const mongoUrl = dev? process.env.MONGOURLDEV : process.env.MONGOURLPROD;
 
-/* export const mongoStore = {
+/*export const mongoStore = {
     store: MongoStore.create({
         mongoUrl: mongoUrl,
         mongoOptions: mongoOptions,
