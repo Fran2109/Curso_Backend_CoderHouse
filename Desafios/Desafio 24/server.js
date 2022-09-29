@@ -2,11 +2,10 @@
 import express from 'express';
 // Logs
 import { errorHandling } from './errors/errorHandling.js';
-// Yargs
-import { port } from './args/args.js';
 // Routers
 import ImagesRouter from './routers/imagesRouter.js';
-
+// Server
+import initializeServer from './server/initializeServer.js';
 
 
 const app = express();
@@ -23,6 +22,4 @@ app.use('/api/images', imagesRouter.start());
 // Error handling
 app.use(errorHandling);
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-});
+initializeServer(app);
