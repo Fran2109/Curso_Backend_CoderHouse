@@ -1,5 +1,4 @@
 import mongoContainer from "../containers/mongoContainer.js";
-import dtoMongoProducts from "../DTO/dtoMongoProducts.js";
 
 export default class daoMongoProducts extends mongoContainer {
     #collection;
@@ -11,6 +10,12 @@ export default class daoMongoProducts extends mongoContainer {
     * @override
     **/
     asDto = document => {
-        return new dtoMongoProducts(document)
+        return {
+            id: document.id,
+            name: document.name,
+            description: document.description,
+            price: document.price,
+            image: document.image
+        }
     }
 }

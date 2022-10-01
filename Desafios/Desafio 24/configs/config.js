@@ -37,13 +37,13 @@ export const mongooseConfig = {
             name: "carts",
             schema: {
                 id: { type: String, require: true },
-                products: [
-                    {
+                products: {
+                    type: [{
                         id: { type: String, require: true },
                         cant: { type: Number, require: true }
-                    }
-                ],
-                default: []
+                    }],
+                    default: []
+                }
             }
         }
     },
@@ -52,17 +52,6 @@ export const mongooseConfig = {
 
 export const mongoOptions = JSON.parse(process.env.MONGOOPTIONS);
 export const mongoUrl = dev? process.env.MONGOURLDEV : process.env.MONGOURLPROD;
-
-/*export const mongoStore = {
-    store: MongoStore.create({
-        mongoUrl: mongoUrl,
-        mongoOptions: mongoOptions,
-    }),
-    secret: "shhhhhhhhhhhhhhhhhhhh",
-    resave: true,
-    saveUninitialized: false,
-    cookie: {
-        maxAge: 600000,
-    },
-};
- */
+export const privateJWTKey = process.env.PRIVATE_JWT_KEY;
+export const expiresInToken = process.env.EXPIRES_IN_TOKEN;
+export const adminMail = process.env.ADMIN_MAIL;
