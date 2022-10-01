@@ -10,7 +10,7 @@ export default class daoMongoCarts extends mongoContainer {
         const { id } = elem;
         const cart = await this.#collection.findOne({ id });
         if(!cart){
-            return await this.save(elem);
+            return await this.#collection(elem);
         } else {
             return cart;
         }
