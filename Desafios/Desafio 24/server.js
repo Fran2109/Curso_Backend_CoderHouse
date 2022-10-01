@@ -8,6 +8,7 @@ import ProductsRouter from './routers/productsRouter.js';
 import UsersRouter from './routers/usersRouter.js';
 import LoginRouter from './routers/loginRouter.js';
 import CartsRouter from './routers/cartsRouter.js';
+import OrdersRouter from './routers/ordersRouter.js';
 // Server
 import initializeServer from './server/initializeServer.js';
 // Middlewares
@@ -19,6 +20,7 @@ const productsRouter = new ProductsRouter();
 const usersRouter = new UsersRouter();
 const loginRouter = new LoginRouter();
 const cartsRouter = new CartsRouter();
+const ordersRouter = new OrdersRouter();
 
 // Middlewares
 app.use(express.static('./public'));
@@ -31,6 +33,7 @@ app.use('/api/images', imagesRouter.start());
 app.use('/api/products', productsRouter.start());
 app.use('/api/users', usersRouter.start());
 app.use('/api/shoppingcartproducts', cartsRouter.start());
+app.use('/api/orders', ordersRouter.start());
 app.use('/login', loginRouter.start());
 
 // Error handling

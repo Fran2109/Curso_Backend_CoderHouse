@@ -1,4 +1,4 @@
-import service from "./../service/index.js";
+import service from "../service/index.js";
 
 export default class cartsController {
     constructor () { }

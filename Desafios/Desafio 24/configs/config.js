@@ -45,6 +45,27 @@ export const mongooseConfig = {
                     default: []
                 }
             }
+        },
+        orders: {
+            name: "orders",
+            schema: {
+                id: { type: String, require: true },
+                date: { type: String, require: true},
+                idClient: { type: String, require: true },
+                products: {
+                    type: [{
+                        product: {
+                            id: { type: String, require: true },
+                            name: { type: String, require: true },
+                            description: { type: String, require: true },
+                            price: { type: Number, require: true },
+                            image: { type: String, require: true },
+                        },
+                        cant: { type: Number, require: true }
+                    }],
+                    default: []
+                }
+            }
         }
     },
 };
