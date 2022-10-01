@@ -9,7 +9,7 @@ export default class daoMongoProducts extends mongoContainer {
     /**
     * @override
     **/
-    asDto = document => {
+    asDto(document){
         return {
             id: document.id,
             name: document.name,

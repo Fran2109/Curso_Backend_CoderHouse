@@ -23,7 +23,7 @@ export default class daoMongoUsers extends mongoContainer {
     /**
     * @override
     **/
-    asDto = document => {
+    asDto(document){
         return {
             id: document.id,
             email: document.email,
