@@ -70,6 +70,9 @@ export const mongooseConfig = {
     },
 };
 
+export const handlebarsConfig = {
+    defaultLayout: 'main.handlebars'
+}
 
 export const mongoOptions = JSON.parse(process.env.MONGOOPTIONS);
 export const mongoUrl = dev? process.env.MONGOURLDEV : process.env.MONGOURLPROD;

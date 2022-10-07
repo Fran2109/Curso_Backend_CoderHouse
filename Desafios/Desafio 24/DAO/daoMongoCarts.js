@@ -17,20 +17,6 @@ export default class daoMongoCarts extends mongoContainer {
             return this.asDto(cart);
         }
     }
-    async insertProductToCart(userId, productId){
-        const cart = await this.#collection.findOne({ id: userId });
-        if(!cart){
-            throw new Error(`Cart not Found`);
-        }
-        const { products } = cart;
-        const product = products.find((product) => product.id === productId);
-        if(!product){
-            products.push({ id: productId, cant: 1 });
-        } else {
-            product.cant++;
-        }
-        return await this.updateById(userId, cart);
-    }
     async getCart(userId){
         const cart = await this.#collection.findOne({ id: userId });
         if(!cart){
@@ -48,10 +34,10 @@ export default class daoMongoCarts extends mongoContainer {
             const product = products.find((product) => product.id === productId);
             if(product){
                 products.splice(products.indexOf(product), 1);
+                this.updateById(cart.id, cart)
             }
-            this.updateById(cart.id, cart)
         });
-        return carts;
+        return carts.map((cart) => this.asDto(cart));
     }
     async deleteAllProductsFromCarts(){
         const carts = await this.#collection.find({});
@@ -59,25 +45,7 @@ export default class daoMongoCarts extends mongoContainer {
             cart.products = [];
             this.updateById(cart.id, cart)
         });
-        return carts;
-    }
-    async deleteProductFromCart(userId, productId){
-        const cart = await this.#collection.findOne({ id: userId });
-        if(!cart){
-            throw new Error(`Cart not Found`);
-        }
-        const { products } = cart;
-        const product = products.find((product) => product.id === productId);
-        if(!product){
-            throw new Error(`Product not Found`);
-        } else {
-            if(product.cant > 1){
-                product.cant--;
-            } else {
-                products.splice(products.indexOf(product), 1);
-            }
-        }
-        return await this.updateById(userId, cart);
+        return carts.map((cart) => this.asDto(cart));
     }
     /**
     * @override

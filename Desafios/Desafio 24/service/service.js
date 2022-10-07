@@ -1,21 +1,25 @@
 import ProductsRepository from "../repository/productsRepository.js";
 import UsersRepository from "./../repository/usersRepository.js";
 import CartsRepository from "./../repository/cartsRepository.js";
+import OrdersRepository from "./../repository/ordersRepository.js";
 import logger from "./../logs/index.js";
 
 export default class Service {
     #repoProducts;
     #repoUsers;
     #repoCarts;
+    #repoOrders;
     /**
     * @param {ProductsRepository} repoProducts
     * @param {UsersRepository} repoUsers
     * @param {CartsRepository} repoCarts
+    * @param {OrdersRepository} repoOrders
     **/
-    constructor(repoProducts, repoUsers, repoCarts) {
+    constructor(repoProducts, repoUsers, repoCarts, repoOrders) {
         this.#repoProducts = repoProducts;
         this.#repoUsers = repoUsers;
         this.#repoCarts = repoCarts;
+        this.#repoOrders = repoOrders;
     }
     async insertProduct(product) {
         try {
@@ -76,7 +80,7 @@ export default class Service {
         try {
             const added = await this.#repoUsers.saveIfNotExists(user);
             if(added) {
-                await this.#repoCarts.createIfNotExists({id: added.id});
+                await this.#repoCarts.createIfNotExists({id: added.id})
             }
             return added;
         } catch (err) {
@@ -114,10 +118,14 @@ export default class Service {
             }
             for(const product of cart.products) {
                 const productData = await this.#repoProducts.getById(product.id);
-                product.name = productData.name;
-                product.description = productData.description;
-                product.price = productData.price;
-                product.image = productData.image;
+                product.product = {
+                    id: productData.id,
+                    name: productData.name,
+                    description: productData.description,
+                    price: productData.price,
+                    image: productData.image
+                }
+                delete(product.id);
             }
             return cart;
         } catch (err) {
@@ -127,11 +135,33 @@ export default class Service {
     }
     async deleteProductFromCart(userId, productId) {
         try {
+            const product = await this.#repoProducts.getById(productId);
+            if(!product) {
+                throw new Error(`Product not Exists`);
+            }
             const deleted = await this.#repoCarts.deleteProductFromCart(userId, productId);
             return deleted;
         } catch (err) {
             logger.error(`Error al Borrar Producto del Carrito: ${err.message}`);
             throw new Error(`Error al Borrar Producto del Carrito: ${err.message}`)
+        }
+    }
+    async createOrder(cart){
+        try {
+            const order = await this.#repoOrders.createOrder(cart);
+            return order;
+        } catch (err) {
+            logger.error(`Error al Crear Orden: ${err.message}`);
+            throw new Error(`Error al Crear Orden: ${err.message}`)
+        }
+    }
+    async clearCart(userId){
+        try {
+            const cleared = await this.#repoCarts.clearCart(userId);
+            return cleared;
+        } catch (err) {
+            logger.error(`Error al Limpiar Carrito: ${err.message}`);
+            throw new Error(`Error al Limpiar Carrito: ${err.message}`)
         }
     }
 }

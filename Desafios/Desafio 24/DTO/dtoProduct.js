@@ -1,4 +1,4 @@
-export default class daoProdct {
+export default class dtoProduct {
     constructor({id, name, description, price, image}){
         this.id = id;
         this.name = name;

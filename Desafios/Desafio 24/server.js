@@ -1,5 +1,8 @@
 // Server
 import express from 'express';
+// Handlebars
+import { engine } from 'express-handlebars';
+import { handlebarsConfig } from './configs/config.js';
 // Logs
 import { errorHandling } from './errors/errorHandling.js';
 // Routers
@@ -9,6 +12,7 @@ import UsersRouter from './routers/usersRouter.js';
 import LoginRouter from './routers/loginRouter.js';
 import CartsRouter from './routers/cartsRouter.js';
 import OrdersRouter from './routers/ordersRouter.js';
+import InfoRouter from './routers/infoRouter.js';
 // Server
 import initializeServer from './server/initializeServer.js';
 // Middlewares
@@ -21,6 +25,12 @@ const usersRouter = new UsersRouter();
 const loginRouter = new LoginRouter();
 const cartsRouter = new CartsRouter();
 const ordersRouter = new OrdersRouter();
+const infoRouter = new InfoRouter();
+
+// Handlebars
+app.engine('handlebars', engine(handlebarsConfig));
+app.set('view engine', 'handlebars')
+app.set('views', './public/views');
 
 // Middlewares
 app.use(express.static('./public'));
@@ -34,6 +44,7 @@ app.use('/api/products', productsRouter.start());
 app.use('/api/users', usersRouter.start());
 app.use('/api/shoppingcartproducts', cartsRouter.start());
 app.use('/api/orders', ordersRouter.start());
+app.use('/api/info', infoRouter.start());
 app.use('/login', loginRouter.start());
 
 // Error handling

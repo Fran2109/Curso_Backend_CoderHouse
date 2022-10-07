@@ -1,4 +1,4 @@
-export default class daoProdct {
+export default class dtoUser {
     constructor({id, email, password, name, lastname, phone, image}){
         this.id = id;
         this.email = email;
