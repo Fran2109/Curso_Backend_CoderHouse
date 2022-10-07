@@ -1,6 +1,6 @@
 import { orders } from './../factory/factory.js';
 import Order from './../models/modelOrder.js';
-import dtoOrder from './../dto/dtoOrder.js';
+import dtoOrder from './../DTO/dtoOrder.js';
 import Id from './../models/modelId.js';
 
 export default class UsersRepository {
