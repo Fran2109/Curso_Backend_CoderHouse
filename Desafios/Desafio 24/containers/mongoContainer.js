@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 
 export default class mongoContainer {
     #collection;
@@ -6,7 +5,7 @@ export default class mongoContainer {
         this.#collection = collection;
     }
     async save(elem){
-        const added = new this.#collection({...elem, id: uuidv4()});
+        const added = new this.#collection(elem);
         await added.save();
         return this.asDto(added);
     }

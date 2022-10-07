@@ -23,12 +23,8 @@ export default class productsController {
     }
     async createProduct(req, res) {
         try {
-            if(!req.body.name || !req.body.description || !req.body.price || !req.body.image) {
-                res.status(400).json({ error: "Product not created" });
-            } else {
-                const product = await service.insertProduct(req.body);
-                res.json(product);
-            }
+            const product = await service.insertProduct(req.body);
+            res.json(product);
         } catch (error) {
             res.status(500).json({ error: error.message });
         }

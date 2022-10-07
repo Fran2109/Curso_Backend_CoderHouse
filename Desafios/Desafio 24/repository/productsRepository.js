@@ -1,4 +1,7 @@
 import { products } from './../factory/factory.js';
+import Id from './../models/modelId.js';
+import Product from './../models/modelProduct.js';
+import ProductDto from './../DTO/dtoProduct.js';
 
 export default class ProductsRepository {
     #products;
@@ -6,19 +9,36 @@ export default class ProductsRepository {
         this.#products = products;
     }
     async save(elem){
-        return await this.#products.save(elem);
+        const id = Id.new();
+        const product = new Product({id, ...elem});
+        const saved = await this.#products.save(product.toJSON());
+        return new ProductDto(saved);
     }
     async getById(id){
-        return await this.#products.getById(id);
+        const product = await this.#products.getById(id);
+        if(!product) {
+            return null;
+        }
+        return new ProductDto(product);
     }
     async getAll(){
-        return await this.#products.getAll();
+        const products = await this.#products.getAll();
+        return products.map(product => new ProductDto(product));
     }
     async updateById(id, elem){
-        return await this.#products.updateById(id, elem);
+        const newProduct = new Product({id, ...elem});
+        const product = await this.#products.updateById(id, newProduct.toJSON());
+        if(!product) {
+            return null;
+        }
+        return new ProductDto(product);
     }
     async deleteById(id){
-        return await this.#products.deleteById(id);
+        const product = await this.#products.deleteById(id);
+        if(!product) {
+            return null;
+        }
+        return new ProductDto(product);
     }
     async deleteAll(){
         await this.#products.deleteAll();

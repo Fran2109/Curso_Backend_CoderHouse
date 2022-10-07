@@ -12,7 +12,7 @@ export default class userController {
                 return res.status(404).json({ error: "User not Found" });
             } else {
                 if(bCrypt.compareSync(password, user.password)){
-                    const token = generateToken(user);
+                    const token = generateToken(user.toJSON());
                     return res.status(200).json({ token: token });
                 } else {
                     return res.status(401).json({ error: "Invalid Password" });

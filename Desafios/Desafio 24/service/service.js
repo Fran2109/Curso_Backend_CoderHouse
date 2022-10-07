@@ -75,7 +75,9 @@ export default class Service {
     async registerUser(user) {
         try {
             const added = await this.#repoUsers.saveIfNotExists(user);
-            await this.#repoCarts.createIfNotExists({id: added.id});
+            if(added) {
+                await this.#repoCarts.createIfNotExists({id: added.id});
+            }
             return added;
         } catch (err) {
             logger.error(`Error al Registrar: ${err.message}`);

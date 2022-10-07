@@ -11,7 +11,9 @@ export default class daoMongoUsers extends mongoContainer {
         if (userExists) {
             return null;
         }
-        return await this.save(user);
+        const added = new this.#collection(user);
+        await added.save();
+        return this.asDto(added);
     }
     async findUserByEmail(email) {
         const user = await this.#collection.findOne({ email: email });
