@@ -2,24 +2,33 @@ import ProductsRepository from "../repository/productsRepository.js";
 import UsersRepository from "./../repository/usersRepository.js";
 import CartsRepository from "./../repository/cartsRepository.js";
 import OrdersRepository from "./../repository/ordersRepository.js";
+import MessagesRepository from "./../repository/messagesRepository.js";
+import Mailer from "./../mail/mailer.js";
 import logger from "./../logs/index.js";
+import { mailReceiver } from "./../configs/config.js";
 
 export default class Service {
     #repoProducts;
     #repoUsers;
     #repoCarts;
     #repoOrders;
+    #repoMessages;
+    #mail
     /**
     * @param {ProductsRepository} repoProducts
     * @param {UsersRepository} repoUsers
     * @param {CartsRepository} repoCarts
     * @param {OrdersRepository} repoOrders
+    * @param {MessagesRepository} repoMessages
+    * @param {Mailer} mail
     **/
-    constructor(repoProducts, repoUsers, repoCarts, repoOrders) {
+    constructor(repoProducts, repoUsers, repoCarts, repoOrders, repoMessages, mail) {
         this.#repoProducts = repoProducts;
         this.#repoUsers = repoUsers;
         this.#repoCarts = repoCarts;
         this.#repoOrders = repoOrders;
+        this.#repoMessages = repoMessages;
+        this.#mail = mail;
     }
     async insertProduct(product) {
         try {
@@ -80,6 +89,7 @@ export default class Service {
         try {
             const added = await this.#repoUsers.saveIfNotExists(user);
             if(added) {
+                this.#mail.sendMailInRegister(user, mailReceiver)
                 await this.#repoCarts.createIfNotExists({id: added.id})
             }
             return added;
@@ -146,9 +156,12 @@ export default class Service {
             throw new Error(`Error al Borrar Producto del Carrito: ${err.message}`)
         }
     }
-    async createOrder(cart){
+    async createOrder(cart, user){
         try {
             const order = await this.#repoOrders.createOrder(cart);
+            this.#mail.sendMailInAcceptToUser(order, user);
+            this.#mail.sendMailInAcceptToAdmin(order, user, mailReceiver);
+            await this.clearCart(order.idClient)
             return order;
         } catch (err) {
             logger.error(`Error al Crear Orden: ${err.message}`);
@@ -162,6 +175,33 @@ export default class Service {
         } catch (err) {
             logger.error(`Error al Limpiar Carrito: ${err.message}`);
             throw new Error(`Error al Limpiar Carrito: ${err.message}`)
+        }
+    }
+    async getOrders(userId){
+        try{
+            const orders = await this.#repoOrders.getOrders(userId);
+            return orders;
+        } catch (err) {
+            logger.error(`Error al Obtener Ordenes: ${err.message}`);
+            throw new Error(`Error al Obtener Ordenes: ${err.message}`)
+        }
+    }
+    async getAllMessages(){
+        try{
+            const messages = await this.#repoMessages.getAll();
+            return messages;
+        } catch (err) {
+            logger.error(`Error al Obtener Mensajes: ${err.message}`);
+            throw new Error(`Error al Obtener Mensajes: ${err.message}`)
+        }
+    }
+    async insertMessage(message){
+        try{
+            const created = await this.#repoMessages.save(message);
+            return created;
+        } catch (err) {
+            logger.error(`Error al Crear Mensaje: ${err.message}`);
+            throw new Error(`Error al Crear Mensaje: ${err.message}`)
         }
     }
 }

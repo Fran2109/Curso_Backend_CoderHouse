@@ -14,4 +14,8 @@ export default class UsersRepository {
         const newOrder = await this.#orders.save(order.toJSON());
         return new dtoOrder(newOrder);
     }
+    async getOrders(idClient){
+        const orders = await this.#orders.getOrders(idClient);
+        return orders.map((order) => new dtoOrder(order));
+    }
 }

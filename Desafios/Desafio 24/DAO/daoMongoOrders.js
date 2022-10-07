@@ -6,6 +6,10 @@ export default class daoMongoOrders extends mongoContainer {
         super(collection);
         this.#collection = collection;
     }
+    async getOrders(idClient){
+        const orders = await this.#collection.find({idClient});
+        return orders.map((order) => this.asDto(order));
+    }
     /**
     * @override
     **/

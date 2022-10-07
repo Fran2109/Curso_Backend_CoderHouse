@@ -3,6 +3,10 @@ import express from 'express';
 // Handlebars
 import { engine } from 'express-handlebars';
 import { handlebarsConfig } from './configs/config.js';
+// Socket.io
+import { Server as HttpServer } from "http";
+import { Server as IOServer } from "socket.io";
+import SocketController from "./controllers/socketController.js";
 // Logs
 import { errorHandling } from './errors/errorHandling.js';
 // Routers
@@ -19,6 +23,8 @@ import initializeServer from './server/initializeServer.js';
 import { logInfo } from "./middlewares/logsMiddlewares.js";
 
 const app = express();
+const httpServer = new HttpServer(app);
+const io = new IOServer(httpServer);
 const imagesRouter = new ImagesRouter();
 const productsRouter = new ProductsRouter();
 const usersRouter = new UsersRouter();
@@ -26,6 +32,7 @@ const loginRouter = new LoginRouter();
 const cartsRouter = new CartsRouter();
 const ordersRouter = new OrdersRouter();
 const infoRouter = new InfoRouter();
+const socketController = new SocketController(io);
 
 // Handlebars
 app.engine('handlebars', engine(handlebarsConfig));
@@ -50,4 +57,6 @@ app.use('/login', loginRouter.start());
 // Error handling
 app.use(errorHandling);
 
-initializeServer(app);
+io.on("connection", (socket) => socketController.start(socket));
+
+initializeServer(httpServer);

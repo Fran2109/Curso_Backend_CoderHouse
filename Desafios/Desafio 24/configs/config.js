@@ -66,6 +66,15 @@ export const mongooseConfig = {
                     default: []
                 }
             }
+        },
+        messages: {
+            name: "messages",
+            schema: {
+                id: { type: String, require: true },
+                date: { type: String, require: true },
+                email: { type: String, require: true },
+                message: { type: String, require: true }
+            }
         }
     },
 };
@@ -79,3 +88,8 @@ export const mongoUrl = dev? process.env.MONGOURLDEV : process.env.MONGOURLPROD;
 export const privateJWTKey = process.env.PRIVATE_JWT_KEY;
 export const expiresInToken = process.env.EXPIRES_IN_TOKEN;
 export const adminMail = process.env.ADMIN_MAIL;
+export const mailSender = process.env.MAIL_SENDER;
+export const mailSenderPassword = process.env.MAIL_SENDER_PASSWORD;
+export const mailReceiver = process.env.MAIL_RECEIVER;
+export const mailSenderHost = process.env.MAIL_HOST;
+export const mailPort = process.env.MAIL_PORT;

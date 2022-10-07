@@ -5,10 +5,10 @@ import logger from "./../logs/index.js";
 import path from 'path';
 
 export default class mailer {
-    constructor(user, pass) {
+    constructor(user, pass, host, port) {
         this.transporter = createTransport({
-            service: 'gmail',
-            port: 587,
+            service: host,
+            port: port,
             auth: {
                 user: user,
                 pass: pass
@@ -33,8 +33,6 @@ export default class mailer {
                 email: user.email,
                 age: user.age,
                 phone: user.phone,
-                address: user.address,
-                image: user.image? ownWeb + user.image : user.avatar,
             })
     
             const mailOptions = {
@@ -43,38 +41,45 @@ export default class mailer {
                 subject: "Nuevo registro",
                 html: html
             }
-            return this.sendMail(mailOptions);
+            return await this.sendMail(mailOptions);
         } catch (err) {
             logger.error(`Error al Enviar: ${err.message}`);
             throw new Error(`Error al Enviar: ${err.message}`)
         }
     }
-    async sendMailInAccept(user, products, total, mail) {
+    async sendMailInAccept(order, user, mailReceiver, title) {
         try {
+            let total = 0;
+            order.products.map((product) => {
+                total += product.cant * product.product.price;
+            })
             const html = generateHtml('./handlebars/accept.handlebars', {
-                title: `Nuevo pedido de ${user.name} ${user.lastname}`,
+                title: title,
                 name: user.name,
                 lastname: user.lastname,
                 email: user.email,
-                age: user.age,
                 phone: user.phone,
-                address: user.address,
-                image: user.image? ownWeb + user.image : user.avatar,
-                products: products,
+                products: order.products,
                 total: total
             })
     
             const mailOptions = {
                 from: "Servidor NodeJS",
-                to: mail,
+                to: mailReceiver,
                 subject: "Orden Aceptada",
                 html: html
             }
-            return this.sendMail(mailOptions);
+            return await this.sendMail(mailOptions);
         } catch (err) {
             logger.error(`Error al Enviar: ${err.message}`);
             throw new Error(`Error al Enviar: ${err.message}`)
         }
+    }
+    async sendMailInAcceptToUser(order, user) {
+        return await this.sendMailInAccept(order, user, user.email, `Felicitaciones por su compra ${user.name} ${user.lastname}`)
+    }
+    async sendMailInAcceptToAdmin(order, user, mailReceiver) {
+        return await this.sendMailInAccept(order, user, mailReceiver, `Nuevo pedido de ${user.name} ${user.lastname}`)
     }
 }
 

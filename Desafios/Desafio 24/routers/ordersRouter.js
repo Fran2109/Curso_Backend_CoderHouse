@@ -11,6 +11,7 @@ export default class CartsRouter {
     }
     start(){
         router.post("/", auth, this.#ordersController.createOrder);
+        router.get('/', auth, this.#ordersController.getOrders)
         return router;
     }
 }
